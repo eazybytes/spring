@@ -14,6 +14,11 @@ to be used in the application.
 public class ProjectConfig {
 
 
+    /*
+    @Bean annotation, which lets Spring know that it needs to call
+    this method when it initializes its context and adds the returned
+    value to the context.
+    * */
     @Bean
     Vehicle getVehicle() {
         var veh = new Vehicle();
