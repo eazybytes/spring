@@ -26,11 +26,10 @@ public class Example7 {
         };
 
         Random random = new Random();
-        // generate random number from 0 to 3
         int randomNumber = random.nextInt(10);
         System.out.println("randomNumber = " + randomNumber);
 
-        if(randomNumber/2==0){
+        if((randomNumber% 2) == 0){
             context.registerBean("volkswagen",
                     Vehicle.class,volkswagenSupplier);
         }else{
