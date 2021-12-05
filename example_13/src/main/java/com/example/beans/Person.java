@@ -12,7 +12,6 @@ public class Person {
 
     @Autowired
     public Person(Vehicle vehicle){
-        System.out.println("Person bean created by Spring");
         this.vehicle = vehicle;
     }
 
