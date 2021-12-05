@@ -17,12 +17,5 @@ public class Example14 {
         if(vehicleServices1==vehicleServices2){
             System.out.println("VehicleServices bean is a singleton scoped bean");
         }
-
-        Vehicle vehicle = context.getBean(Vehicle.class);
-        Person person = context.getBean(Person.class);
-        if(vehicle.getVehicleServices()==person.getVehicleServices()){
-            System.out.println("The same instance of VehicleServices bean is injected into Vehicle" +
-                    " and Person beans ");
-        }
     }
 }
