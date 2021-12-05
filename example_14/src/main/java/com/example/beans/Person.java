@@ -12,9 +12,6 @@ public class Person {
     private final Vehicle vehicle;
 
     @Autowired
-    private VehicleServices vehicleServices;
-
-    @Autowired
     public Person(Vehicle vehicle){
         System.out.println("Person bean created by Spring");
         this.vehicle = vehicle;
@@ -30,14 +27,6 @@ public class Person {
 
     public Vehicle getVehicle() {
         return vehicle;
-    }
-
-    public VehicleServices getVehicleServices() {
-        return vehicleServices;
-    }
-
-    public void setVehicleServices(VehicleServices vehicleServices) {
-        this.vehicleServices=vehicleServices;
     }
 
 }
