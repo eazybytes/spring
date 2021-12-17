@@ -20974,6 +20974,132 @@ h4.inner-text-title {
 
 /* //inner banner */
 
+/* qualification section */
+.w3l-timeline-1 {
+  background: var(--bg-light);
+}
+
+.w3l-timeline-1 .timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.w3l-timeline-1 .timeline:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 55px;
+  width: 3px;
+  height: calc(100% - 10px);
+  background: var(--primary-color);
+}
+
+.w3l-timeline-1 .timeline .column {
+  margin: 0px 40px 40px 120px;
+}
+
+.w3l-timeline-1 h5.sub-title-timeline {
+  font-size: 24px;
+  line-height: 34px;
+  margin-bottom: 1em;
+  margin-left: 2em;
+}
+
+.w3l-timeline-1 h5.sub-title-timeline i {
+  color: var(--primary-color);
+}
+
+.w3l-timeline-1 .timeline .column .title h2 {
+  font-size: 21px;
+  line-height: 31px;
+  font-weight: 600;
+  position: relative;
+}
+
+.w3l-timeline-1 .timeline .column .title h2:before {
+  content: "";
+  position: absolute;
+  left: -73px;
+  top: 10px;
+  width: 18px;
+  height: 18px;
+  background: var(--bg-color);
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+.description h6 {
+  color: var(--primary-color);
+  margin-top: 15px;
+}
+
+.w3l-timeline-1 .main {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 80px;
+}
+
+.w3l-timeline-1 .main h1 {
+  font-size: 80px;
+  line-height: 60px;
+}
+
+.w3l-timeline-1 .main p {
+  font-size: 13px;
+  line-height: 20px;
+  font-family: serif;
+  text-align: right;
+}
+
+@media (max-width: 1280px) {}
+
+@media (max-width: 1080px) {}
+
+@media (max-width: 800px) {
+  .w3l-timeline-1 .timeline .column {
+    margin: 0px 0px 40px 120px;
+  }
+}
+
+@media (max-width: 568px) {
+  .w3l-timeline-1 .timeline .column {
+    margin: 0px 0px 40px 60px;
+  }
+
+  .w3l-timeline-1 .timeline::before {
+    left: 15px;
+  }
+
+  .w3l-timeline-1 .timeline .column .title h2:before {
+    left: -53px;
+    top: 7px;
+  }
+
+  .w3l-timeline-1 h5.sub-title-timeline {
+    margin-left: .4em;
+  }
+}
+
+@media (max-width: 400px) {
+  .w3l-timeline-1 .timeline .column {
+    margin: 0px 0px 40px 40px;
+  }
+
+  .w3l-timeline-1 .timeline .column .title h2 {
+    font-size: 19px;
+    line-height: 28px;
+  }
+
+  .w3l-timeline-1 .timeline .column .title h2:before {
+    left: -32px;
+    top: 4px;
+  }
+}
+
+/* qualification section */
+
 /* contact section */
 .contact-block input,
 .contact-block textarea {
