@@ -32,15 +32,3 @@ DELETE FROM person where email='admin@eazyschool.com';
 
 INSERT INTO `person` (`name`,`email`,`mobile_number`,`pwd`,`role_id`,`created_at`, `created_by`)
   VALUES ('Admin','admin@eazyschool.com','3443434343','$2a$10$XhU4UcSxDPb5G0I0fT/CZ.Lfj2VW2fkLkUP5cOEM.xM8EzyUQXaD2', 1 ,CURDATE(),'DBA');
-
-INSERT INTO `courses` (`name`,`fees`,`created_at`, `created_by`)
-  VALUES ('Music','1200.00',CURDATE(),'DBA');
-
-INSERT INTO `courses` (`name`,`fees`,`created_at`, `created_by`)
-  VALUES ('Painting','$1000.00',CURDATE(),'DBA');
-
-INSERT INTO `courses` (`name`,`fees`,`created_at`, `created_by`)
-  VALUES ('Meditation','$600.00',CURDATE(),'DBA');
-
-INSERT INTO `courses` (`name`,`fees`,`created_at`, `created_by`)
-  VALUES ('Games','$400.00',CURDATE(),'DBA');
