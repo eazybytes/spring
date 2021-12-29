@@ -38,7 +38,7 @@
     <div class="table-responsive-class">
 
         <div class="row mb-4">
-            <li class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"
+            <li class="alert alert-danger" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"
                 th:text="${errorMessage}" />
             <div class="overview-wrap">
                 <h3 class="heading-21921" th:text="${eazyClass.name} + ' Students Details'"></h3>
@@ -86,14 +86,13 @@
                 <td th:text="${person.name}"></td>
                 <td th:text="${person.email}"></td>
                 <td th:text="${person.mobileNumber}"></td>
-                <td><a th:href="@{/closeMsg(id=${eazyClass.classId})}" class="btn btn-success">VIEW</a></td>
-                <td><a th:href="@{/admin/deleteClass(id=${eazyClass.classId})}" class="btn btn-warning">DELETE</a></td>
+                <td><a th:href="@{/admin/deleteStudent(personId=${person.personId})}" class="btn btn-warning">DELETE</a></td>
             </tr>
             </tbody>
         </table>
     </div>
     <div class="col-md-2 login-center text-start">
-        <a th:href="@{/dashboard}">
+        <a th:href="@{/admin/displayClasses}">
         <button class="btn btn-style btn-style-3 text-left">BACK</button>
         </a>
     </div>
