@@ -34,7 +34,7 @@ INSERT INTO `person` (`name`,`email`,`mobile_number`,`pwd`,`role_id`,`created_at
   VALUES ('Admin','admin@eazyschool.com','3443434343','$2a$10$XhU4UcSxDPb5G0I0fT/CZ.Lfj2VW2fkLkUP5cOEM.xM8EzyUQXaD2', 1 ,CURDATE(),'DBA');
 
 INSERT INTO `contact_msg` (`name`,`mobile_num`,`email`,`subject`,`message`,`status`,`created_at`, `created_by`)
-  VALUES ('Adam','2176436587','zadam@gmail.com','Regarding a job','Wanyed to join as teacher','Open',CURDATE(),'DBA');
+  VALUES ('Adam','2176436587','zadam@gmail.com','Regarding a job','Wanted to join as teacher','Open',CURDATE(),'DBA');
 
 INSERT INTO `contact_msg` (`name`,`mobile_num`,`email`,`subject`,`message`,`status`,`created_at`, `created_by`)
   VALUES ('Zara','3412654387','zarabaig@hotmail.com','Course Admission','Wanted to join a course','Open',CURDATE(),'DBA');
@@ -52,7 +52,7 @@ INSERT INTO `contact_msg` (`name`,`mobile_num`,`email`,`subject`,`message`,`stat
   VALUES ('Taniya Bell','3987463827','belltaniya@gmail.com','Child Scholarship','Can my child get scholarship?','Open',CURDATE(),'DBA');
 
 INSERT INTO `contact_msg` (`name`,`mobile_num`,`email`,`subject`,`message`,`status`,`created_at`, `created_by`)
-  VALUES ('Willie Lara','4568764801','476lara@gmail.com','Need Admission','My son need an admisiion','Open',CURDATE(),'DBA');
+  VALUES ('Willie Lara','4568764801','476lara@gmail.com','Need Admission','My son need an admission','Open',CURDATE(),'DBA');
 
 INSERT INTO `contact_msg` (`name`,`mobile_num`,`email`,`subject`,`message`,`status`,`created_at`, `created_by`)
   VALUES ('Jonathan Parsons','4321768902','jonathan.parsons@gmail.com','Course feedback','Music course is good','Open',CURDATE(),'DBA');
