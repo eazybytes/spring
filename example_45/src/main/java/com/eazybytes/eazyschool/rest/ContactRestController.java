@@ -25,7 +25,7 @@ public class ContactRestController {
 
     @GetMapping("/getMessagesByStatus")
     // @ResponseBody
-    public List<Contact> getAllMessagesByStatus(@RequestParam(name = "status")  String status){
+    public List<Contact> getMessagesByStatus(@RequestParam(name = "status")  String status){
         return contactRepository.findByStatus(status);
 
     }
