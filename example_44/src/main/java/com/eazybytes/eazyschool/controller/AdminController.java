@@ -115,6 +115,14 @@ public class AdminController {
         return modelAndView;
     }
 
+    @PostMapping("/addNewCourse")
+    public ModelAndView addNewCourse(Model model, @ModelAttribute("course") Courses courses,
+                                     HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        coursesRepository.save(courses);
+        modelAndView.setViewName("redirect:/admin/displayCourses");
+        return modelAndView;
+    }
 
     @GetMapping("/viewStudents")
     public ModelAndView viewStudents(Model model, @RequestParam(required = false) int id,
