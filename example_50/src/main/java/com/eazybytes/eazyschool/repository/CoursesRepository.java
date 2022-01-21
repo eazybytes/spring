@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@RepositoryRestResource(path = "courses", collectionResourceRel = "courses")
+//@RepositoryRestResource(exported = false)
+@RepositoryRestResource(path = "courses")
 public interface CoursesRepository extends JpaRepository<Courses, Integer> {
 
     /*
