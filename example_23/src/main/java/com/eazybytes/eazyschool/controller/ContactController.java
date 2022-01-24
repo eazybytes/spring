@@ -39,9 +39,9 @@ public class ContactController {
     }*/
 
     @RequestMapping(value = "/saveMsg",method = POST)
-    public String saveMessage(Contact contact) {
+    public ModelAndView saveMessage(Contact contact){
         contactService.saveMessageDetails(contact);
-        return "redirect:/contact";
+        return new ModelAndView("redirect:/contact");
     }
 
 
