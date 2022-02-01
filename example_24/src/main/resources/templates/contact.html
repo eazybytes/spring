@@ -46,9 +46,10 @@ Author URL: http://w3layouts.com
             <div class="row contact-block">
                 <div class="col-md-7 contact-right">
                     <ul>
-                        <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('contact.*')}" th:text="${error}" />
+                        <li class="alert alert-danger" role="alert"
+                            th:each="error : ${#fields.errors('contact.*')}" th:text="${error}" />
                     </ul>
-                    <form action="/saveMsg" method="post" class="signin-form" th:object="${contact}">
+                    <form th:action="@{/saveMsg}" method="post" class="signin-form" th:object="${contact}">
                         <div class="input-grids">
                             <div class="row">
                                 <div class="col-sm-6">
