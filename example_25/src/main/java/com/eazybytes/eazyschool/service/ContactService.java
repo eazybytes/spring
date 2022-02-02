@@ -14,8 +14,8 @@ Logger static property in the class at compilation time.
 * */
 @Slf4j
 @Service
-// @RequestScope
-// @SessionScope
+//@RequestScope
+//@SessionScope
 @ApplicationScope
 public class ContactService {
 
