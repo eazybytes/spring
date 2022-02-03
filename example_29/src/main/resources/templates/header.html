@@ -22,12 +22,12 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li class="nav-item" sec:authorize="isAnonymous()">
-                            <a th:classappend="${#httpServletRequest.getRequestURI() == '/home' ? 'active':''}"
-                               th:href="@{/home}" class="nav-link" aria-current="page">Home</a>
+                            <a  th:classappend="${#httpServletRequest.getRequestURI() == '/home' ? 'active':''}"
+                                th:href="@{/home}" class="nav-link" aria-current="page">Home</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAnonymous()">
-                            <a  th:classappend="${#httpServletRequest.getRequestURI() == '/courses' ? 'active':''}"
-                                th:href="@{/courses}" class="nav-link">Courses</a>
+                            <a th:classappend="${#httpServletRequest.getRequestURI() == '/courses' ? 'active':''}"
+                               th:href="@{/courses}" class="nav-link">Courses</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAnonymous()">
                             <a  th:classappend="${#httpServletRequest.getRequestURI() == '/contact' ? 'active':''}"
