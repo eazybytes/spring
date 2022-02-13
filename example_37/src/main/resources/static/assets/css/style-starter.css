@@ -724,6 +724,7 @@ progress {
   width: 100%;
   max-width: 100%;
   padding-right: calc(var(--bs-gutter-x) / 2);
+  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
 }
 
@@ -20973,7 +20974,7 @@ h4.inner-text-title {
 
 /* //inner banner */
 
-/* qualification section */
+/* holidays section */
 .w3l-timeline-1 {
   background: var(--bg-light);
 }
@@ -21097,7 +21098,7 @@ h4.inner-text-title {
   }
 }
 
-/* qualification section */
+/* holidays section */
 
 /* contact section */
 .contact-block input,
