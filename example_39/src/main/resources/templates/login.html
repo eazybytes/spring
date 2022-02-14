@@ -44,7 +44,7 @@ Author URL: http://w3layouts.com
         </div>
         <div class="row login-block">
             <div class="col-md-6 login-center">
-                <form action="/login" method="post" class="signin-form">
+                <form th:action="@{/login}" method="post" class="signin-form">
                     <div class="col-md-8 login-center input-grids">
                         <li class="alert alert-success" role="alert" th:if="${!#strings.isEmpty(errorMessage)}"
                             th:text="${errorMessage}" />

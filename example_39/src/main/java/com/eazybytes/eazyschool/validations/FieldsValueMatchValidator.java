@@ -12,11 +12,13 @@ public class FieldsValueMatchValidator
     private String field;
     private String fieldMatch;
 
+    @Override
     public void initialize(FieldsValueMatch constraintAnnotation) {
         this.field = constraintAnnotation.field();
         this.fieldMatch = constraintAnnotation.fieldMatch();
     }
 
+    @Override
     public boolean isValid(Object value,ConstraintValidatorContext context) {
         Object fieldValue = new BeanWrapperImpl(value)
                 .getPropertyValue(field);
