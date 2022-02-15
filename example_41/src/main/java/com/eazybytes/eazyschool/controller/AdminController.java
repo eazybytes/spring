@@ -1,6 +1,7 @@
 package com.eazybytes.eazyschool.controller;
 
-import com.eazybytes.eazyschool.model.*;
+import com.eazybytes.eazyschool.model.EazyClass;
+import com.eazybytes.eazyschool.model.Person;
 import com.eazybytes.eazyschool.repository.EazyClassRepository;
 import com.eazybytes.eazyschool.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ public class AdminController {
         List<EazyClass> eazyClasses = eazyClassRepository.findAll();
         ModelAndView modelAndView = new ModelAndView("classes.html");
         modelAndView.addObject("eazyClasses",eazyClasses);
-        model.addAttribute("eazyClass", new EazyClass());
+        modelAndView.addObject("eazyClass", new EazyClass());
         return modelAndView;
     }
 
@@ -43,7 +44,6 @@ public class AdminController {
 
     @RequestMapping("/deleteClass")
     public ModelAndView deleteClass(Model model, @RequestParam int id) {
-        // Demo of Cascade.All
         Optional<EazyClass> eazyClass = eazyClassRepository.findById(id);
         for(Person person : eazyClass.get().getPersons()){
             person.setEazyClass(null);
@@ -55,8 +55,8 @@ public class AdminController {
     }
 
     @GetMapping("/displayStudents")
-    public ModelAndView displayStudents(Model model, @RequestParam(required = false) int classId,
-            HttpSession session,@RequestParam(value = "error", required = false) String error) {
+    public ModelAndView displayStudents(Model model, @RequestParam int classId, HttpSession session,
+                                        @RequestParam(value = "error", required = false) String error) {
         String errorMessage = null;
         ModelAndView modelAndView = new ModelAndView("students.html");
         Optional<EazyClass> eazyClass = eazyClassRepository.findById(classId);
@@ -94,8 +94,8 @@ public class AdminController {
         Optional<Person> person = personRepository.findById(personId);
         person.get().setEazyClass(null);
         eazyClass.getPersons().remove(person.get());
-        eazyClassRepository.save(eazyClass);
-        session.setAttribute("eazyClass",eazyClass);
+        EazyClass eazyClassSaved = eazyClassRepository.save(eazyClass);
+        session.setAttribute("eazyClass",eazyClassSaved);
         ModelAndView modelAndView = new ModelAndView("redirect:/admin/displayStudents?classId="+eazyClass.getClassId());
         return modelAndView;
     }

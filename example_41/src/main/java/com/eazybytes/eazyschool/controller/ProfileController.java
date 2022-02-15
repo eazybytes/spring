@@ -1,13 +1,11 @@
 package com.eazybytes.eazyschool.controller;
 
 import com.eazybytes.eazyschool.model.Address;
-import com.eazybytes.eazyschool.model.Contact;
 import com.eazybytes.eazyschool.model.Person;
 import com.eazybytes.eazyschool.model.Profile;
 import com.eazybytes.eazyschool.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,9 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.List;
-
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Slf4j
 @Controller
@@ -67,8 +62,8 @@ public class ProfileController {
         person.getAddress().setCity(profile.getCity());
         person.getAddress().setState(profile.getState());
         person.getAddress().setZipCode(profile.getZipCode());
-        personRepository.save(person);
-        session.setAttribute("loggedInPerson", person);
+        Person savedPerson = personRepository.save(person);
+        session.setAttribute("loggedInPerson", savedPerson);
         return "redirect:/displayProfile";
     }
 }

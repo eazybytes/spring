@@ -47,7 +47,7 @@ Author URL: http://w3layouts.com
                     <ul>
                         <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('person.*')}" th:text="${error}" />
                     </ul>
-                    <form action="/public/createUser" method="post" class="signin-form" th:object="${person}">
+                    <form th:action="@{/public/createUser}" method="post" class="signin-form" th:object="${person}">
                         <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
                             <p class="text-uppercase">Personal Details</p>
                         </div>

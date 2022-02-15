@@ -66,7 +66,6 @@ CREATE TABLE IF NOT EXISTS `person` (
    FOREIGN KEY (role_id) REFERENCES roles(role_id),
    FOREIGN KEY (address_id) REFERENCES address(address_id)
 );
-
 CREATE TABLE IF NOT EXISTS `class` (
   `class_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
