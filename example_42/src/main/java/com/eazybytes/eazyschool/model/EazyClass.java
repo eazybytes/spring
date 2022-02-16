@@ -1,17 +1,12 @@
 package com.eazybytes.eazyschool.model;
 
-import com.eazybytes.eazyschool.annotation.FieldsValueMatch;
-import com.eazybytes.eazyschool.annotation.PasswordValidator;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.domain.Page;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
@@ -19,7 +14,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "class")
-public class EazyClass extends BaseEntity{
+public class EazyClass extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
