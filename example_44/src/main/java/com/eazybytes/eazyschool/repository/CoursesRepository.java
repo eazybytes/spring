@@ -20,5 +20,4 @@ public interface CoursesRepository extends JpaRepository<Courses, Integer> {
     sorts the results in the ascending order.
     * */
     List<Courses> findByOrderByName();
-
 }
