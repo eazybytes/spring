@@ -8,7 +8,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /*
 @Data annotation is provided by Lombok library which generates getter, setter,
@@ -21,7 +20,6 @@ This makes our code short and clean.
 @SqlResultSetMappings({
         @SqlResultSetMapping(name = "SqlResultSetMapping.count", columns = @ColumnResult(name = "cnt"))
 })
-/*@NamedQuery(name="Contact.findOpenMsgs",query = "SELECT c FROM Contact c WHERE c.status = :status")*/
 @NamedQueries({
         @NamedQuery(name = "Contact.findOpenMsgs",
                 query = "SELECT c FROM Contact c WHERE c.status = :status"),
@@ -76,5 +74,5 @@ public class Contact extends BaseEntity{
     private String message;
 
     private String status;
-
+    
 }
