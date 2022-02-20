@@ -19,10 +19,10 @@ import java.util.List;
 public class ContactController {
 
     @Autowired
-    RestTemplate restTemplate;
+    ContactProxy contactProxy;
 
     @Autowired
-    ContactProxy contactProxy;
+    RestTemplate restTemplate;
 
     @Autowired
     WebClient webClient;
@@ -39,7 +39,7 @@ public class ContactController {
         headers.add("invocationFrom","RestTemplate");
         HttpEntity<Contact> httpEntity = new HttpEntity<>(contact, headers);
         ResponseEntity<Response> responseEntity = restTemplate.exchange(uri, HttpMethod.POST,
-                        httpEntity,Response.class);
+                httpEntity,Response.class);
         return responseEntity;
     }
 
