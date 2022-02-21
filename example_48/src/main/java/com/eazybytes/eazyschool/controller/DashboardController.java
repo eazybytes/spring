@@ -25,7 +25,7 @@ public class DashboardController {
     PersonRepository personRepository;
 
     @RequestMapping("/dashboard")
-    public String displayDashboard(Model model, Authentication authentication, HttpSession session) {
+    public String displayDashboard(Model model,Authentication authentication, HttpSession session) {
         Person person = personRepository.readByEmail(authentication.getName());
         model.addAttribute("username", person.getName());
         model.addAttribute("roles", authentication.getAuthorities().toString());
@@ -43,7 +43,6 @@ public class DashboardController {
         log.info("Info message from the Dashboard page");
         log.debug("Debug message from the Dashboard page");
         log.trace("Trace message from the Dashboard page");
-
     }
 
 }
