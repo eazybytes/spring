@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="LOGS" value="C://logs//dev" />
+    <property name="LOGS" value="C://logs" />
+
     <appender name="Console"
               class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -30,35 +31,17 @@
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
     </appender>
+
+    <!-- LOG everything at INFO level -->
     <root level="info">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </root>
-    <logger name="com.eazybytes.eazyschool" level="info" additivity="false">
+
+    <!-- LOG "com.eazybytes.eazyschool*" at ERROR level -->
+    <logger name="com.eazybytes.eazyschool" level="error" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </logger>
 
-    <springProfile name="uat">
-        <property name="LOGS" value="C://logs//uat" />
-        <root level="warn">
-            <appender-ref ref="RollingFile" />
-            <appender-ref ref="Console" />
-        </root>
-        <logger name="com.eazybytes.eazyschool" level="warn" additivity="false">
-            <appender-ref ref="RollingFile" />
-            <appender-ref ref="Console" />
-        </logger>
-    </springProfile>
-    <springProfile name="prod">
-        <property name="LOGS" value="C://logs//prod" />
-        <root level="error">
-            <appender-ref ref="RollingFile" />
-            <appender-ref ref="Console" />
-        </root>
-        <logger name="com.eazybytes.eazyschool" level="error" additivity="false">
-            <appender-ref ref="RollingFile" />
-            <appender-ref ref="Console" />
-        </logger>
-    </springProfile>
 </configuration>

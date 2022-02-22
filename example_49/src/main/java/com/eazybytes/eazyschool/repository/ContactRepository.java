@@ -22,7 +22,7 @@ public interface ContactRepository extends PagingAndSortingRepository<Contact, I
 
     List<Contact> findByStatus(String status);
 
-    // @Query("SELECT c FROM Contact c WHERE c.status = :status")
+    //@Query("SELECT c FROM Contact c WHERE c.status = :status")
     @Query(value = "SELECT * FROM contact_msg c WHERE c.status = :status",nativeQuery = true)
     Page<Contact> findByStatusWithQuery(@Param("status") String status, Pageable pageable);
 
@@ -44,4 +44,5 @@ public interface ContactRepository extends PagingAndSortingRepository<Contact, I
     @Modifying
     @Query(nativeQuery = true)
     int updateMsgStatusNative(String status, int id);
+
 }
