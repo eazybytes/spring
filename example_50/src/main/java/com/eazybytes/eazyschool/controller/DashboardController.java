@@ -18,29 +18,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 @Slf4j
 @Controller
 public class DashboardController {
 
-    @Value("${eazyschool.pageSize}")
-    private int defaultPageSize;
-
-    @Value("${spring.profiles.active}")
-    private String activeProfile;
-
-    @Value("#{eazySchoolProps.branches}")
-    private String[] branches;
-
-    @Autowired
-    private Environment environment;
-
     @Autowired
     PersonRepository personRepository;
 
+    @Value("${eazyschool.pageSize}")
+    private int defaultPageSize;
+
+    @Value("${eazyschool.contact.successMsg}")
+    private String message;
+
+    @Autowired
+    Environment environment;
+
     @RequestMapping("/dashboard")
-    public String displayDashboard(Model model, Authentication authentication, HttpSession session) {
+    public String displayDashboard(Model model,Authentication authentication, HttpSession session) {
         Person person = personRepository.readByEmail(authentication.getName());
         model.addAttribute("username", person.getName());
         model.addAttribute("roles", authentication.getAuthorities().toString());
@@ -59,15 +55,12 @@ public class DashboardController {
         log.debug("Debug message from the Dashboard page");
         log.trace("Trace message from the Dashboard page");
 
-        log.error("Default Page Size is : "+defaultPageSize);
-        for(String branch : branches){
-            log.error("Eazy School Branch : "+branch);
-        }
-        log.error("Active profile from property file : "+activeProfile);
-        for (String profileName : environment.getActiveProfiles()) {
-            log.error("Active profile from environment : "+profileName);
-        }
+        log.error("defaultPageSize value with @Value annotation is : "+defaultPageSize);
+        log.error("successMsg value with @Value annotation is : "+message);
 
+        log.error("defaultPageSize value with Environment is : "+environment.getProperty("eazyschool.pageSize"));
+        log.error("successMsg value with Environment is : "+environment.getProperty("eazyschool.contact.successMsg"));
+        log.error("Java Home environment variable using Environment is : "+environment.getProperty("JAVA_HOME"));
     }
 
 }

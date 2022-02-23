@@ -7,6 +7,7 @@ import com.eazybytes.eazyschool.repository.ContactRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,14 +25,13 @@ public class ContactRestController {
     ContactRepository contactRepository;
 
     @GetMapping("/getMessagesByStatus")
-    // @ResponseBody
+    //@ResponseBody
     public List<Contact> getMessagesByStatus(@RequestParam(name = "status")  String status){
         return contactRepository.findByStatus(status);
-
     }
 
     @GetMapping("/getAllMsgsByStatus")
-    // @ResponseBody
+    //@ResponseBody
     public List<Contact> getAllMsgsByStatus(@RequestBody Contact contact){
         if(null != contact && null != contact.getStatus()){
             return contactRepository.findByStatus(contact.getStatus());
@@ -92,5 +92,4 @@ public class ContactRestController {
                 .status(HttpStatus.OK)
                 .body(response);
     }
-
 }

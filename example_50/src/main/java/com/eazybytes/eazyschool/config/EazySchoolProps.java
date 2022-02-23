@@ -1,8 +1,8 @@
 package com.eazybytes.eazyschool.config;
 
+
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
@@ -22,4 +22,5 @@ public class EazySchoolProps {
     private int pageSize;
     private Map<String, String> contact;
     private List<String> branches;
+
 }
