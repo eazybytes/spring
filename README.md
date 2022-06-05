@@ -43,7 +43,7 @@
 
 ## Pre-requisite for the course
 
-- Good understanding on Java
+- Good understanding on Core Java languagge
 - Basic understanding on HTML, CSS, Web Apps but not mandatory
 - Interest to learn and explore about Spring framework
 
