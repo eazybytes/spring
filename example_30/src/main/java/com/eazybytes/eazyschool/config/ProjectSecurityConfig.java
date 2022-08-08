@@ -1,20 +1,26 @@
 package com.eazybytes.eazyschool.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
+public class ProjectSecurityConfig  {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    /**
+     * From Spring Security 5.7, the WebSecurityConfigurerAdapter is deprecated to encourage users
+     * to move towards a component-based security configuration. It is recommended to create a bean
+     * of type SecurityFilterChain for security related configurations.
+     * @param http
+     * @return SecurityFilterChain
+     * @throws Exception
+     */
+    @Bean
+    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
             http.csrf().disable()
                 .authorizeRequests()
@@ -31,15 +37,23 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
                 .and().httpBasic();
 
+            return http.build();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-            .withUser("user").password("12345").roles("USER")
-            .and()
-            .withUser("admin").password("54321").roles("USER", "ADMIN")
-            .and().passwordEncoder(NoOpPasswordEncoder.getInstance());
+    @Bean
+    public InMemoryUserDetailsManager userDetailsService() {
+
+        UserDetails admin = User.withDefaultPasswordEncoder()
+                .username("user")
+                .password("12345")
+                .roles("USER")
+                .build();
+        UserDetails user = User.withDefaultPasswordEncoder()
+                .username("admin")
+                .password("54321")
+                .roles("USER","ADMIN")
+                .build();
+        return new InMemoryUserDetailsManager(user, admin);
     }
 
 }
