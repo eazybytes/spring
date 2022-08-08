@@ -6,12 +6,22 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
+public class ProjectSecurityConfig {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    /**
+     * From Spring Security 5.7, the WebSecurityConfigurerAdapter is deprecated to encourage users
+     * to move towards a component-based security configuration. It is recommended to create a bean
+     * of type SecurityFilterChain for security related configurations.
+     *
+     * @param http
+     * @return SecurityFilterChain
+     * @throws Exception
+     */
+    @Bean
+    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
             http.csrf().ignoringAntMatchers("/saveMsg").ignoringAntMatchers("/public/**").and()
                 .authorizeRequests()
@@ -29,6 +39,8 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
                 .and().httpBasic();
+
+            return http.build();
     }
 
     @Bean
