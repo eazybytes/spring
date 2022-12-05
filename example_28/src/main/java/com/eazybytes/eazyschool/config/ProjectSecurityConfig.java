@@ -24,7 +24,7 @@ public class ProjectSecurityConfig  {
                 .requestMatchers("/holidays/**").permitAll()
                 .requestMatchers("/contact").permitAll()
                 .requestMatchers("/saveMsg").permitAll()
-                .requestMatchers("/courses").authenticated()
+                .requestMatchers("/courses").permitAll()
                 .requestMatchers("/about").permitAll()
                 .requestMatchers("/assets/**").permitAll()
                 .and().formLogin().and().httpBasic();
