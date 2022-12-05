@@ -36,12 +36,12 @@ public class ProjectSecurityConfig  /*extends WebSecurityConfigurerAdapter*/  {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
         // Permit All Requests inside the Web Application
-            http.authorizeRequests().anyRequest().permitAll().
+            http.authorizeHttpRequests().anyRequest().permitAll().
                     and().formLogin()
                     .and().httpBasic();
 
         // Deny All Requests inside the Web Application
-            /*http.authorizeRequests().anyRequest().denyAll().
+            /*http.authorizeHttpRequests().anyRequest().denyAll().
                     and().formLogin()
                     .and().httpBasic();*/
         
