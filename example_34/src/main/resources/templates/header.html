@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
 
@@ -22,28 +22,22 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li class="nav-item" sec:authorize="isAnonymous()">
-                            <a th:classappend="${#httpServletRequest.getRequestURI() == '/home' ? 'active':''}"
-                               th:href="@{/home}" class="nav-link" aria-current="page">Home</a>
+                            <a th:href="@{/home}" class="nav-link" aria-current="page">Home</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAnonymous()">
-                            <a  th:classappend="${#httpServletRequest.getRequestURI() == '/courses' ? 'active':''}"
-                                th:href="@{/courses}" class="nav-link">Courses</a>
+                            <a th:href="@{/courses}" class="nav-link">Courses</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAnonymous()">
-                            <a  th:classappend="${#httpServletRequest.getRequestURI() == '/contact' ? 'active':''}"
-                                th:href="@{/contact}" class="nav-link">Contact</a>
+                            <a th:href="@{/contact}" class="nav-link">Contact</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAnonymous()">
-                            <a  th:classappend="${#httpServletRequest.getRequestURI() == '/login' ? 'active':''}"
-                                th:href="@{/login}" class="nav-link">LogIn</a>
+                            <a th:href="@{/login}" class="nav-link">LogIn</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAuthenticated()">
-                            <a  th:classappend="${#httpServletRequest.getRequestURI() == '/dashboard' ? 'active':''}"
-                                th:href="@{/dashboard}" class="nav-link">Dashboard</a>
+                            <a th:href="@{/dashboard}" class="nav-link">Dashboard</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAuthenticated()">
-                            <a  th:classappend="${#httpServletRequest.getRequestURI() == '/logout' ? 'active':''}"
-                                th:href="@{/logout}" class="nav-link">Logout</a>
+                            <a th:href="@{/logout}" class="nav-link">Logout</a>
                         </li>
                     </ul>
                 </div>
