@@ -2,7 +2,7 @@ package com.eazybytes.eazyschool.model;
 
 import lombok.Data;
 
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 import java.util.Date;
 
