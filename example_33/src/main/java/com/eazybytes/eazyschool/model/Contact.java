@@ -3,7 +3,7 @@ package com.eazybytes.eazyschool.model;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
 
 /*
 @Data annotation is provided by Lombok library which generates getter, setter,

@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 -->
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
     <!-- Required meta tags -->
@@ -20,7 +20,7 @@ Author URL: http://w3layouts.com
 <body>
 
 <!-- header -->
-<div th:replace="header :: header">...</div>
+<div th:replace="~{header :: header}">...</div>
 <!-- //header -->
 
 <!-- inner banner -->
@@ -61,7 +61,7 @@ Author URL: http://w3layouts.com
 <!-- //error block -->
 
 <!-- footer block -->
-<div th:replace="footer :: footer">...</div>
+<div th:replace="~{footer :: footer}">...</div>
 <!-- //footer block -->
 
 <!-- Js scripts -->

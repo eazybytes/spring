@@ -1,5 +1,6 @@
 package com.eazybytes.eazyschool.config;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,22 +22,24 @@ public class ProjectSecurityConfig {
      */
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-
-            http.csrf().ignoringAntMatchers("/saveMsg").ignoringAntMatchers("/h2-console/**").and()
-                .authorizeRequests()
-                .mvcMatchers("/dashboard").authenticated()
-                .mvcMatchers("/displayMessages").hasRole("ADMIN")
-                .mvcMatchers("/home").permitAll()
-                .mvcMatchers("/holidays/**").permitAll()
-                .mvcMatchers("/contact").permitAll()
-                .mvcMatchers("/saveMsg").permitAll()
-                .mvcMatchers("/courses").permitAll()
-                .mvcMatchers("/about").permitAll()
-                .mvcMatchers("/login").permitAll()
+            http.csrf().ignoringRequestMatchers("/saveMsg").ignoringRequestMatchers(PathRequest.toH2Console()).and()
+                .authorizeHttpRequests()
+                .requestMatchers("/dashboard").authenticated()
+                .requestMatchers("/displayMessages").hasRole("ADMIN")
+                .requestMatchers("/closeMsg/**").hasRole("ADMIN")
+                .requestMatchers("/home").permitAll()
+                .requestMatchers("/holidays/**").permitAll()
+                .requestMatchers("/contact").permitAll()
+                .requestMatchers("/saveMsg").permitAll()
+                .requestMatchers("/courses").permitAll()
+                .requestMatchers("/about").permitAll()
+                .requestMatchers("/login").permitAll()
+                .requestMatchers("/logout").permitAll()
+                .requestMatchers("/assets/**").permitAll()
+                .requestMatchers(PathRequest.toH2Console()).permitAll()
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
-                .and().authorizeRequests().antMatchers("/h2-console/**").permitAll()
                 .and().httpBasic();
 
             http.headers().frameOptions().disable();
