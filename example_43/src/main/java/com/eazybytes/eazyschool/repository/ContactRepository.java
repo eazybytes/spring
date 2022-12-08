@@ -15,7 +15,7 @@ type to the Spring context and indicate that given Bean is used to perform
 DB related operations and
 * */
 @Repository
-public interface ContactRepository extends PagingAndSortingRepository<Contact, Integer> {
+public interface ContactRepository extends PagingAndSortingRepository<Contact, Integer>, CrudRepository<Contact, Integer> {
 
     List<Contact> findByStatus(String status);
 
