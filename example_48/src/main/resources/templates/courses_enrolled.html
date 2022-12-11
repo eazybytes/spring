@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
     <!-- Required meta tags -->
@@ -16,7 +16,7 @@
 <body>
 
 <!-- header -->
-<div th:replace="header :: header">...</div>
+<div th:replace="~{header :: header}">...</div>
 <!-- //header -->
 
 <!-- inner banner -->
@@ -67,7 +67,7 @@
 </div>
 
 <!-- footer block -->
-<div th:replace="footer :: footer">...</div>
+<div th:replace="~{footer :: footer}">...</div>
 <!-- //footer block -->
 
 <!-- Js scripts -->
