@@ -22,33 +22,36 @@ public class ProjectSecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
-            http.csrf().ignoringAntMatchers("/saveMsg").ignoringAntMatchers("/public/**")
-                .ignoringAntMatchers("/api/**").ignoringAntMatchers("/data-api/**")
-                .ignoringAntMatchers("/eazyschool/actuator/**")
-                .and().authorizeRequests()
-                .mvcMatchers("/dashboard").authenticated()
-                .mvcMatchers("/displayProfile").authenticated()
-                .mvcMatchers("/updateProfile").authenticated()
-                .mvcMatchers("/student/**").hasRole("STUDENT")
-                .mvcMatchers("/displayMessages").hasRole("ADMIN")
-                .mvcMatchers("/admin/**").hasRole("ADMIN")
-                .mvcMatchers("/eazyschool/actuator/**").hasRole("ADMIN")
-                .mvcMatchers("/api/**").authenticated()
-                .mvcMatchers("/data-api/**").authenticated()
-                .mvcMatchers("/home").permitAll()
-                .mvcMatchers("/holidays/**").permitAll()
-                .mvcMatchers("/contact").permitAll()
-                .mvcMatchers("/saveMsg").permitAll()
-                .mvcMatchers("/courses").permitAll()
-                .mvcMatchers("/about").permitAll()
-                .mvcMatchers("/login").permitAll()
-                .mvcMatchers("/public/**").permitAll()
+        http.csrf().ignoringRequestMatchers("/saveMsg").ignoringRequestMatchers("/public/**")
+                .ignoringRequestMatchers("/api/**").ignoringRequestMatchers("/data-api/**")
+                .ignoringRequestMatchers("/eazyschool/actuator/**").and()
+                .authorizeHttpRequests()
+                .requestMatchers("/dashboard").authenticated()
+                .requestMatchers("/displayMessages/**").hasRole("ADMIN")
+                .requestMatchers("/closeMsg/**").hasRole("ADMIN")
+                .requestMatchers("/admin/**").hasRole("ADMIN")
+                .requestMatchers("/eazyschool/actuator/**").hasRole("ADMIN")
+                .requestMatchers("/api/**").authenticated()
+                .requestMatchers("/data-api/**").authenticated()
+                .requestMatchers("/displayProfile").authenticated()
+                .requestMatchers("/updateProfile").authenticated()
+                .requestMatchers("/student/**").hasRole("STUDENT")
+                .requestMatchers("/home").permitAll()
+                .requestMatchers("/holidays/**").permitAll()
+                .requestMatchers("/contact").permitAll()
+                .requestMatchers("/saveMsg").permitAll()
+                .requestMatchers("/courses").permitAll()
+                .requestMatchers("/about").permitAll()
+                .requestMatchers("/login").permitAll()
+                .requestMatchers("/logout").permitAll()
+                .requestMatchers("/assets/**").permitAll()
+                .requestMatchers("/public/**").permitAll()
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
                 .and().httpBasic();
 
-        return http.build();
+            return http.build();
     }
 
     @Bean
