@@ -8,15 +8,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class ProjectSecurityConfig {
 
-    /**
-     * From Spring Security 5.7, the WebSecurityConfigurerAdapter is deprecated to encourage users
-     * to move towards a component-based security configuration. It is recommended to create a bean
-     * of type SecurityFilterChain for security related configurations.
-     *
-     * @param http
-     * @return SecurityFilterChain
-     * @throws Exception
-     */
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
@@ -25,22 +16,22 @@ public class ProjectSecurityConfig {
                 .requestMatchers("/dashboard").authenticated()
                 .requestMatchers("/displayMessages").hasRole("ADMIN")
                 .requestMatchers("/closeMsg/**").hasRole("ADMIN")
-                .requestMatchers("/home").permitAll()
+                .requestMatchers("", "/", "/home").permitAll()
                 .requestMatchers("/holidays/**").permitAll()
                 .requestMatchers("/contact").permitAll()
                 .requestMatchers("/saveMsg").permitAll()
                 .requestMatchers("/courses").permitAll()
                 .requestMatchers("/about").permitAll()
+                .requestMatchers("/assets/**").permitAll()
                 .requestMatchers("/login").permitAll()
                 .requestMatchers("/logout").permitAll()
-                .requestMatchers("/assets/**").permitAll()
                 .requestMatchers("/public/**").permitAll()
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
                 .and().httpBasic();
 
-            return http.build();
+        return http.build();
     }
 
 }
