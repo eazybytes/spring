@@ -4,7 +4,6 @@ import lombok.Data;
 
 import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @MappedSuperclass
