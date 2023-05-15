@@ -11,8 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 /*
 @Slf4j, is a Lombok-provided annotation that will automatically generate an SLF4J
 Logger static property in the class at compilation time.
