@@ -1,8 +1,5 @@
 package com.eazybytes.eazyschool.audit;
 
-import com.eazybytes.eazyschool.constants.EazySchoolConstants;
-import com.eazybytes.eazyschool.repository.ContactRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.info.Info;
 import org.springframework.boot.actuate.info.InfoContributor;
 import org.springframework.stereotype.Component;
