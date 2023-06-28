@@ -2,6 +2,7 @@ package com.eazybytes.eazyschool.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -12,14 +13,14 @@ public class ProjectSecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
         // Permit All Requests inside the Web Application
-        http.authorizeHttpRequests().anyRequest().permitAll().
-                and().formLogin()
-                .and().httpBasic();
+        http.authorizeHttpRequests(requests -> requests.anyRequest().permitAll())
+                .formLogin(Customizer.withDefaults())
+                .httpBasic(Customizer.withDefaults());
 
         // Deny All Requests inside the Web Application
-            /*http.authorizeHttpRequests().anyRequest().denyAll().
-                    and().formLogin()
-                    .and().httpBasic();*/
+            /*http.authorizeHttpRequests(requests -> requests.anyRequest().denyAll())
+                .formLogin(Customizer.withDefaults())
+                .httpBasic(Customizer.withDefaults());*/
 
         return http.build();
 
