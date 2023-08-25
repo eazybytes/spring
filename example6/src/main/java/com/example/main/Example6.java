@@ -13,7 +13,9 @@ public class Example6 {
         Vehicle vehicle = context.getBean(Vehicle.class);
         System.out.println("Component Vehicle name from " +
                 "Spring Context is: " + vehicle.getName());
+        //Output= Component Vehicle name from Spring Context is: Honda
         vehicle.printHello();
+        //Output= Destroying Vehicle Bean
         context.close();
 
     }
