@@ -12,11 +12,14 @@ public class Example3 {
 
         Vehicle veh1 = context.getBean("audiVehicle",Vehicle.class);
         System.out.println("Vehicle name from Spring Context is: " + veh1.getName());
+        // Output= Vehicle name from Spring Context is: Audi
 
         Vehicle veh2 = context.getBean("hondaVehicle",Vehicle.class);
         System.out.println("Vehicle name from Spring Context is: " + veh2.getName());
+        // Output= Vehicle name from Spring Context is: Honda
 
         Vehicle veh3 = context.getBean("ferrariVehicle",Vehicle.class);
         System.out.println("Vehicle name from Spring Context is: " + veh3.getName());
+        // Output= Vehicle name from Spring Context is: Ferrari
     }
 }
