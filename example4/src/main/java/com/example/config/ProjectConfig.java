@@ -48,5 +48,7 @@ public class ProjectConfig {
         veh.setName("Ferrari");
         return veh;
     }
-
+/*  @Bean(name = "audiVehicle") or @Bean(value = "audiVehicle") or @Bean("ferrariVehicle")
+    all will result in the same outcome: defining a bean
+    named "audiVehicle" in the Spring context. */
 }
