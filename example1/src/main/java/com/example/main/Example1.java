@@ -20,7 +20,8 @@ public class Example1 {
 
         Vehicle veh = context.getBean(Vehicle.class);
         System.out.println("Vehicle name from Spring Context is: " + veh.getName());
-
+        //veh.getName()=Audi 8
+        //Therefore, Output= Vehicle name from Spring Context is: Audi 8
         /*
         We don’t need to do any explicit casting while fetching a bean from context.
         Spring is smart enough to look for a bean of the type you requested in its context.
@@ -28,8 +29,9 @@ public class Example1 {
         * */
         String hello = context.getBean(String.class);
         System.out.println("String value from Spring Context is: " + hello);
+        //Output= String value from Spring Context is: Hello World
         Integer num = context.getBean(Integer.class);
         System.out.println("Integer value from Spring Context is: " + num);
-
+        //Output= Integer value from Spring Context is: 16
     }
 }
