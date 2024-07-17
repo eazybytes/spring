@@ -1,5 +1,8 @@
 package com.example.beans;
 
+/**
+ *  Vehicle Class
+ */
 public class Vehicle {
 
     private String name;
