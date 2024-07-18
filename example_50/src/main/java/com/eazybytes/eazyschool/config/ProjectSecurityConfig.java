@@ -27,7 +27,7 @@ public class ProjectSecurityConfig {
                     .requestMatchers("/displayProfile").authenticated()
                     .requestMatchers("/updateProfile").authenticated()
                     .requestMatchers("/student/**").hasRole("STUDENT")
-                    .requestMatchers("", "/", "/home").permitAll()
+                    .requestMatchers("/", "/home").permitAll()
                     .requestMatchers("/holidays/**").permitAll()
                     .requestMatchers("/contact").permitAll()
                     .requestMatchers("/saveMsg").permitAll()
