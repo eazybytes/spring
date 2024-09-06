@@ -35,19 +35,27 @@ public class ProjectSecurityConfig {
     }
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-
-        UserDetails user = User.withDefaultPasswordEncoder()
+    public InMemoryUserDetailsManager userDetailsManagerService() {
+        
+        UserDetails user = User.builder()
                 .username("user")
-                .password("12345")
+                .password(passwordEncoder().encode("123456"))
                 .roles("USER")
                 .build();
-        UserDetails admin = User.withDefaultPasswordEncoder()
+
+        UserDetails admin = User.builder()
                 .username("admin")
-                .password("54321")
+                .password(passwordEncoder().encode("123456"))
                 .roles("USER", "ADMIN")
                 .build();
+
         return new InMemoryUserDetailsManager(user, admin);
+    }
+
+    @Bean
+    protected PasswordEncoder passwordEncoder() {
+        
+        return new BCryptPasswordEncoder();
     }
 
 }
