@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.1</version>
+		<version>3.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.eazybytes</groupId>
@@ -16,7 +16,7 @@
 	<description>Eazy School Web Application</description>
 	<properties>
 		<java.version>21</java.version>
-		<spring-boot-admin.version>3.3.2</spring-boot-admin.version>
+		<spring-boot-admin.version>3.4.1</spring-boot-admin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -73,7 +73,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
-			<version>6.1.11</version>
+			<version>6.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -86,7 +86,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-micrometer</artifactId>
-			<version>6.5.2.Final</version>
+			<version>6.6.6.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>de.codecentric</groupId>
