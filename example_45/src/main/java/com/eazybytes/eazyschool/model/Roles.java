@@ -10,8 +10,7 @@ import jakarta.persistence.*;
 public class Roles extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int roleId;
 
     private String roleName;
