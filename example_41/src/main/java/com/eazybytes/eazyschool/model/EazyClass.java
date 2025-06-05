@@ -16,8 +16,7 @@ import java.util.Set;
 public class EazyClass extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int classId;
 
     @NotBlank(message="Name must not be blank")

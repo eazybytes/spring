@@ -31,8 +31,7 @@ import jakarta.validation.constraints.Size;
 public class Person extends BaseEntity{
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int personId;
 
     @NotBlank(message="Name must not be blank")
