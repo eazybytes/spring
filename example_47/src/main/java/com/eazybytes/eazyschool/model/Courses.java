@@ -14,8 +14,7 @@ import java.util.Set;
 public class Courses extends BaseEntity{
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO,generator="native")
-    @GenericGenerator(name = "native",strategy = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int courseId;
 
     private String name;
