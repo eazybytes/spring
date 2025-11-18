@@ -85,8 +85,13 @@ httpClient.interceptors.request.use(
             throw new Error("Failed to retrieve CSRF token from cookies");
           }
         } catch (error) {
-          console.error("[CSRF Token Error]", error);
-          return Promise.reject(error);
+          // Ignore 404 errors (endpoint might not be available) and continue
+          if (error.response && error.response.status === 404) {
+            console.warn("[CSRF Token] Endpoint not found (404), continuing without CSRF token");
+          } else {
+            console.error("[CSRF Token Error]", error);
+            return Promise.reject(error);
+          }
         }
       }
 
