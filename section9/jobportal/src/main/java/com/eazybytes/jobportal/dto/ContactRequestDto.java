@@ -4,6 +4,9 @@ import jakarta.validation.constraints.*;
 
 import java.io.Serializable;
 
+/**
+ * DTO for {@link com.eazybytes.jobportal.entity.Contact}
+ */
 public record ContactRequestDto(
 
         @NotBlank(message = "Email can not be empty")
