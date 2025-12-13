@@ -87,17 +87,10 @@ export const fetchCompanies = async () => {
  */
 export const fetchAllJobs = async () => {
   try {
-    console.log("[companyService] Fetching companies...");
     const companies = await fetchCompanies();
-    console.log("[companyService] Fetched companies:", companies.length);
-    console.log("[companyService] Sample company:", companies[0]);
 
     // Flatten all jobs from all companies into a single array
     const allJobs = companies.flatMap((company) => company.jobs || []);
-    console.log(
-      "[companyService] Total jobs from all companies:",
-      allJobs.length
-    );
 
     return allJobs;
   } catch (error) {

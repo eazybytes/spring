@@ -22,27 +22,15 @@ const ContactMessages = () => {
   const [totalElements, setTotalElements] = useState(0);
 
   useEffect(() => {
-    console.log("ContactMessages component mounted, fetching messages...");
     fetchMessages();
   }, [sortBy, sortDir, pageNumber, pageSize]);
 
   const fetchMessages = async () => {
     try {
-      console.log("Starting fetchMessages...");
-      console.log("API Endpoint:", API_ENDPOINTS.ADMIN_CONTACTS);
-
       // Check if user is authenticated
       const token = localStorage.getItem("authToken");
       const userStr = localStorage.getItem("jobPortalUser");
       const user = userStr ? JSON.parse(userStr) : null;
-
-      console.log("Auth token exists:", !!token);
-      console.log(
-        "Auth token value:",
-        token ? token.substring(0, 20) + "..." : "null"
-      );
-      console.log("User string:", userStr);
-      console.log("User object:", user);
 
       if (!token) {
         console.error("No auth token found - user needs to login");
@@ -59,8 +47,8 @@ const ContactMessages = () => {
           pageNumber: pageNumber,
           pageSize: pageSize,
           sortBy: sortBy,
-          sortDir: sortDir
-        }
+          sortDir: sortDir,
+        },
       });
 
       // Check if we got HTML instead of JSON (authentication failed)
@@ -81,11 +69,9 @@ const ContactMessages = () => {
 
       // The backend returns a Page object with pagination info
       const pageData = response.data;
-      const contactsData = Array.isArray(pageData.content) ? pageData.content : [];
-
-      console.log("Fetched contacts count:", contactsData.length);
-      console.log("Total elements:", pageData.totalElements);
-      console.log("Total pages:", pageData.totalPages);
+      const contactsData = Array.isArray(pageData.content)
+        ? pageData.content
+        : [];
 
       setMessages(contactsData);
       setTotalPages(pageData.totalPages);
@@ -290,8 +276,8 @@ const ContactMessages = () => {
             </div>
 
             <div className="ml-auto text-sm text-gray-600 dark:text-gray-400">
-              Showing <span className="font-semibold">{messages.length}</span> of{" "}
-              <span className="font-semibold">{totalElements}</span> messages
+              Showing <span className="font-semibold">{messages.length}</span>{" "}
+              of <span className="font-semibold">{totalElements}</span> messages
             </div>
           </div>
         </div>
@@ -497,8 +483,8 @@ const ContactMessages = () => {
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   {/* Page Info */}
                   <div className="text-sm text-gray-700 dark:text-gray-300">
-                    Page <span className="font-semibold">{pageNumber + 1}</span> of{" "}
-                    <span className="font-semibold">{totalPages}</span>
+                    Page <span className="font-semibold">{pageNumber + 1}</span>{" "}
+                    of <span className="font-semibold">{totalPages}</span>
                   </div>
 
                   {/* Pagination Buttons */}
@@ -513,8 +499,18 @@ const ContactMessages = () => {
                           : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600"
                       }`}
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11 19l-7-7 7-7m8 14l-7-7 7-7"
+                        />
                       </svg>
                     </button>
 
@@ -528,8 +524,18 @@ const ContactMessages = () => {
                           : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600"
                       }`}
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 19l-7-7 7-7"
+                        />
                       </svg>
                     </button>
 
@@ -537,8 +543,14 @@ const ContactMessages = () => {
                     {(() => {
                       const pages = [];
                       const maxPagesToShow = 5;
-                      let startPage = Math.max(0, pageNumber - Math.floor(maxPagesToShow / 2));
-                      let endPage = Math.min(totalPages - 1, startPage + maxPagesToShow - 1);
+                      let startPage = Math.max(
+                        0,
+                        pageNumber - Math.floor(maxPagesToShow / 2)
+                      );
+                      let endPage = Math.min(
+                        totalPages - 1,
+                        startPage + maxPagesToShow - 1
+                      );
 
                       if (endPage - startPage < maxPagesToShow - 1) {
                         startPage = Math.max(0, endPage - maxPagesToShow + 1);
@@ -572,8 +584,18 @@ const ContactMessages = () => {
                           : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600"
                       }`}
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
                       </svg>
                     </button>
 
@@ -587,8 +609,18 @@ const ContactMessages = () => {
                           : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600"
                       }`}
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 5l7 7-7 7M5 5l7 7-7 7"
+                        />
                       </svg>
                     </button>
                   </div>
