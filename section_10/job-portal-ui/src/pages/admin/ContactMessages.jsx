@@ -359,7 +359,7 @@ const ContactMessages = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm">
                             <span
                               className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                message.status === "OPEN"
+                                message.status === "NEW"
                                   ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
                                   : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                               }`}
@@ -371,7 +371,7 @@ const ContactMessages = () => {
                             {formatDate(message.createdAt)}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm">
-                            {message.status === "OPEN" && (
+                            {message.status === "NEW" && (
                               <button
                                 onClick={(e) =>
                                   handleCloseMessage(message.id, e)
@@ -427,7 +427,7 @@ const ContactMessages = () => {
                                     <p className="text-gray-900 dark:text-white">
                                       <span
                                         className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                                          message.status === "OPEN"
+                                          message.status === "NEW"
                                             ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
                                             : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                                         }`}

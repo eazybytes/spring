@@ -41,10 +41,10 @@ export const API_ENDPOINTS = {
   // Contact endpoints
   CONTACTS: "/contacts/public",
   CONTACT_BY_ID: (id) => `/contacts/${id}`,
-  ADMIN_CONTACTS: "/admin/contacts",
-  ADMIN_CONTACTS_SORT: "/admin/contacts/sort",
-  ADMIN_CONTACTS_PAGE: "/admin/contacts/page",
-  UPDATE_CONTACT_STATUS: (id) => `/admin/contacts/${id}/status`,
+  ADMIN_CONTACTS: "/contacts/admin",
+  ADMIN_CONTACTS_SORT: "/contacts/sort/admin",
+  ADMIN_CONTACTS_PAGE: "/contacts/page/admin",
+  UPDATE_CONTACT_STATUS: (id) => `/contacts/${id}/status/admin`,
 
   // CSRF token endpoint
   CSRF_TOKEN: "/csrf-token/public",
