@@ -1,5 +1,5 @@
-import httpClient from '../config/httpClient';
-import { API_ENDPOINTS } from '../config/api';
+import httpClient from "../config/httpClient";
+import { API_ENDPOINTS } from "../config/api";
 
 /**
  * Get all saved jobs for the current user
@@ -9,7 +9,7 @@ export const getSavedJobs = async () => {
     const response = await httpClient.get(API_ENDPOINTS.SAVED_JOBS);
     return response.data;
   } catch (error) {
-    console.error('Error fetching saved jobs:', error);
+    console.error("Error fetching saved jobs:", error);
     throw error;
   }
 };
@@ -22,7 +22,7 @@ export const getSavedJobIds = async () => {
     const response = await httpClient.get(API_ENDPOINTS.SAVED_JOB_IDS);
     return response.data;
   } catch (error) {
-    console.error('Error fetching saved job IDs:', error);
+    console.error("Error fetching saved job IDs:", error);
     throw error;
   }
 };
@@ -33,10 +33,12 @@ export const getSavedJobIds = async () => {
  */
 export const saveJob = async (jobId) => {
   try {
-    const response = await httpClient.post(API_ENDPOINTS.SAVE_JOB(jobId));
+    const response = await httpClient.post(
+      API_ENDPOINTS.SAVE_UNSAVE_JOB(jobId)
+    );
     return response.data;
   } catch (error) {
-    console.error('Error saving job:', error);
+    console.error("Error saving job:", error);
     throw error;
   }
 };
@@ -47,9 +49,9 @@ export const saveJob = async (jobId) => {
  */
 export const unsaveJob = async (jobId) => {
   try {
-    await httpClient.delete(API_ENDPOINTS.UNSAVE_JOB(jobId));
+    await httpClient.delete(API_ENDPOINTS.SAVE_UNSAVE_JOB(jobId));
   } catch (error) {
-    console.error('Error unsaving job:', error);
+    console.error("Error unsaving job:", error);
     throw error;
   }
 };
@@ -63,7 +65,7 @@ export const isJobSaved = async (jobId) => {
     const response = await httpClient.get(API_ENDPOINTS.CHECK_JOB_SAVED(jobId));
     return response.data;
   } catch (error) {
-    console.error('Error checking if job is saved:', error);
+    console.error("Error checking if job is saved:", error);
     return false;
   }
 };

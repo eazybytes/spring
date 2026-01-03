@@ -4,7 +4,7 @@ import { API_ENDPOINTS } from "../config/api";
 /**
  * Transform job data from backend to frontend structure
  */
-const transformJob = (job) => {
+export const transformJob = (job) => {
   // Parse JSON strings for requirements and benefits
   let requirements = [];
   let benefits = [];

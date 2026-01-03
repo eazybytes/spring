@@ -3,6 +3,7 @@ import { useAuth } from './AuthContext';
 import { useJobsData } from '../contexts/JobsDataContext';
 import * as savedJobService from '../services/savedJobService';
 import * as jobApplicationService from '../services/jobApplicationService';
+import { transformJob } from '../services/companyService';
 
 const JobContext = createContext();
 
@@ -33,7 +34,7 @@ export const JobProvider = ({ children }) => {
             const applicationsData = await jobApplicationService.getMyApplications();
             // Transform backend data to match frontend format
             const transformedApplications = applicationsData.map(app => ({
-              ...app.job,
+              ...transformJob(app.job),
               appliedAt: app.appliedAt,
               status: app.status,
               applicationId: app.id,
@@ -60,7 +61,7 @@ export const JobProvider = ({ children }) => {
             const savedJobsData = await savedJobService.getSavedJobs();
             // Transform backend data to match frontend format
             const transformedJobs = savedJobsData.map(savedJob => ({
-              ...savedJob.job,
+              ...transformJob(savedJob.job),
               savedAt: savedJob.savedAt
             }));
             setSavedJobs(transformedJobs);

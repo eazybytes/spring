@@ -245,7 +245,7 @@ const AppliedJobs = () => {
                   </div>
                   <div className="lg:ml-8 text-center lg:text-right">
                     <div className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent mb-4">
-                      {formatSalary(job.salaryMin, job.salaryMax)}
+                      {formatSalary(job.salary?.min, job.salary?.max)}
                     </div>
                     <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                       <Link

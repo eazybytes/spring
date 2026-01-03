@@ -38,8 +38,10 @@ export const API_ENDPOINTS = {
   LOGOUT: "/auth/logout",
 
   // User endpoints
-  PROFILE: "/profile",
-  UPDATE_PROFILE: "/profile",
+  PROFILE: "/users/profile/jobseeker",
+  PROFILE_PICTURE: "/users/profile/picture/jobseeker",
+  PROFILE_RESUME: "/users/profile/resume/jobseeker",
+  UPDATE_PROFILE: "/users/profile/jobseeker",
 
   // Contact endpoints
   CONTACTS: "/contacts/public",
@@ -59,22 +61,21 @@ export const API_ENDPOINTS = {
     `/users/${userId}/company/${companyId}/admin`,
 
   // Employer Job Management endpoints
-  EMPLOYER_JOBS: "/employer/jobs",
-  POST_JOB: "/employer/jobs",
-  UPDATE_JOB_STATUS: (jobId) => `/employer/jobs/${jobId}/status`,
+  EMPLOYER_JOBS: "/jobs/employer",
+  POST_JOB: "/jobs/employer",
+  UPDATE_JOB_STATUS: (jobId) => `/jobs/${jobId}/status/employer`,
 
   // Saved Jobs endpoints
-  SAVED_JOBS: "/saved-jobs",
+  SAVED_JOBS: "/users/saved-jobs/jobseeker",
   SAVED_JOB_IDS: "/saved-jobs/ids",
-  SAVE_JOB: (jobId) => `/saved-jobs/${jobId}`,
-  UNSAVE_JOB: (jobId) => `/saved-jobs/${jobId}`,
+  SAVE_UNSAVE_JOB: (jobId) => `/users/saved-jobs/${jobId}/jobseeker`,
   CHECK_JOB_SAVED: (jobId) => `/saved-jobs/check/${jobId}`,
 
   // Job Application endpoints
   JOB_APPLICATIONS: "/job-applications",
-  APPLY_JOB: "/job-applications",
-  WITHDRAW_APPLICATION: (jobId) => `/job-applications/${jobId}`,
-  MY_APPLICATIONS: "/job-applications/my-applications",
+  APPLY_JOB: "/users/job-applications/jobseeker",
+  WITHDRAW_APPLICATION: (jobId) => `/users/job-applications/${jobId}/jobseeker`,
+  MY_APPLICATIONS: "/users/job-applications/jobseeker",
   APPLIED_JOB_IDS: "/job-applications/applied-job-ids",
   CHECK_APPLIED: (jobId) => `/job-applications/check/${jobId}`,
   APPLICATIONS_BY_JOB: (jobId) => `/job-applications/job/${jobId}`,
