@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useJobs } from "../context/JobContext";
 import { useAuth } from "../context/AuthContext";
+import ApplyJobModal from "../components/ApplyJobModal";
 
 const SavedJobs = () => {
+  const [showApplyModal, setShowApplyModal] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [notification, setNotification] = useState(null);
+
   const { savedJobs, unsaveJob, applyForJob, isJobApplied } = useJobs();
-  const { isJobSeeker, isAuthenticated, isLoading: authLoading } = useAuth();
+  const { isJobSeeker, isAuthenticated, isLoading: authLoading, user } = useAuth();
+  const navigate = useNavigate();
 
   const formatSalary = (min, max) => {
     return `$${(min / 1000).toFixed(0)}k - $${(max / 1000).toFixed(0)}k`;
@@ -23,17 +30,38 @@ const SavedJobs = () => {
     }
   };
 
+  const showNotification = (message, type = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 3000);
+  };
+
   const handleUnsave = async (jobId) => {
     await unsaveJob(jobId);
   };
 
   const handleQuickApply = (job) => {
-    const result = applyForJob(job);
+    if (!isAuthenticated || !isJobSeeker) return;
+    setSelectedJob(job);
+    setShowApplyModal(true);
+  };
+
+  const confirmApply = async (coverLetter) => {
+    if (!selectedJob) return;
+
+    const result = await applyForJob(selectedJob, coverLetter);
     if (result.success) {
-      // Could add a toast notification here
+      showNotification(result.message, 'success');
     } else {
-      console.error(result.error);
+      if (result.requiresProfile) {
+        showNotification(result.error, 'error');
+        setTimeout(() => {
+          navigate('/profile');
+        }, 2000);
+      } else {
+        showNotification(result.error, 'error');
+      }
     }
+    setSelectedJob(null);
   };
 
   // Show loading state while auth is initializing
@@ -102,6 +130,26 @@ const SavedJobs = () => {
             </div>
           </div>
         </div>
+
+        {/* Notification */}
+        {notification && (
+          <div className={`mb-6 p-4 rounded-xl border ${
+            notification.type === 'success'
+              ? 'bg-green-50 border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-200'
+              : 'bg-red-50 border-red-200 text-red-800 dark:bg-red-900/20 dark:border-red-800 dark:text-red-200'
+          }`}>
+            <div className="flex items-center">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {notification.type === 'success' ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L12.732 4.5c-.77-.833-2.186-.833-2.954 0L2.857 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                )}
+              </svg>
+              {notification.message}
+            </div>
+          </div>
+        )}
 
         {savedJobs.length === 0 ? (
           <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-lg border border-white/20 dark:border-gray-700/20 p-12 text-center">
@@ -277,6 +325,16 @@ const SavedJobs = () => {
           </div>
         )}
       </div>
+
+      {/* Apply Job Modal */}
+      <ApplyJobModal
+        isOpen={showApplyModal}
+        onClose={() => setShowApplyModal(false)}
+        onConfirm={confirmApply}
+        job={selectedJob}
+        confirmText="Submit Application"
+        cancelText="Cancel"
+      />
     </div>
   );
 };

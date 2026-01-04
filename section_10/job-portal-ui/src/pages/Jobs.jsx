@@ -5,6 +5,7 @@ import { useJobs } from '../context/JobContext'
 import { useJobsData } from '../contexts/JobsDataContext'
 import { useAuth } from '../context/AuthContext'
 import RefreshButton from '../components/RefreshButton'
+import ApplyJobModal from '../components/ApplyJobModal'
 import ConfirmationModal from '../components/ConfirmationModal'
 
 const Jobs = () => {
@@ -106,10 +107,10 @@ const Jobs = () => {
     setShowApplyModal(true)
   }
 
-  const confirmApply = async () => {
+  const confirmApply = async (coverLetter) => {
     if (!selectedJob) return
 
-    const result = await applyForJob(selectedJob)
+    const result = await applyForJob(selectedJob, coverLetter)
     if (result.success) {
       showNotification(result.message, 'success')
     } else {
@@ -585,16 +586,14 @@ const Jobs = () => {
         )}
       </div>
 
-      {/* Apply Confirmation Modal */}
-      <ConfirmationModal
+      {/* Apply Job Modal */}
+      <ApplyJobModal
         isOpen={showApplyModal}
         onClose={() => setShowApplyModal(false)}
         onConfirm={confirmApply}
-        title="Apply for this Job?"
-        message={selectedJob ? `You are about to apply for the position of ${selectedJob.title} at ${selectedJob.company}. Make sure your profile is up to date before submitting your application.` : ''}
-        confirmText="Yes, Apply"
+        job={selectedJob}
+        confirmText="Submit Application"
         cancelText="Cancel"
-        type="success"
       />
 
       {/* Withdraw Confirmation Modal */}

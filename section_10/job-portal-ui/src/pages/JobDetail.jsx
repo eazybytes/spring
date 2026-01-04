@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { useJobs } from "../context/JobContext";
 import { useJobsData } from "../contexts/JobsDataContext";
 import { useAuth } from "../context/AuthContext";
+import ApplyJobModal from "../components/ApplyJobModal";
 import ConfirmationModal from "../components/ConfirmationModal";
 
 const JobDetail = () => {
@@ -67,8 +68,8 @@ const JobDetail = () => {
     setShowApplyModal(true);
   };
 
-  const confirmApply = async () => {
-    const result = await applyForJob(job);
+  const confirmApply = async (coverLetter) => {
+    const result = await applyForJob(job, coverLetter);
     if (result.success) {
       showNotification(result.message, "success");
     } else {
@@ -632,16 +633,14 @@ const JobDetail = () => {
         </div>
       </div>
 
-      {/* Apply Confirmation Modal */}
-      <ConfirmationModal
+      {/* Apply Job Modal */}
+      <ApplyJobModal
         isOpen={showApplyModal}
         onClose={() => setShowApplyModal(false)}
         onConfirm={confirmApply}
-        title="Apply for this Job?"
-        message={`You are about to apply for the position of ${job?.title} at ${job?.company}. Make sure your profile is up to date before submitting your application.`}
-        confirmText="Yes, Apply"
+        job={job}
+        confirmText="Submit Application"
         cancelText="Cancel"
-        type="success"
       />
 
       {/* Withdraw Confirmation Modal */}
