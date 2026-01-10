@@ -17,6 +17,8 @@ const JobApplicants = () => {
   const [showContactModal, setShowContactModal] = useState(false);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [applicationNotes, setApplicationNotes] = useState({});
+  const [applicationStatuses, setApplicationStatuses] = useState({});
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -148,6 +150,8 @@ const JobApplicants = () => {
               resume: resumeBase64,
               profileImage: profilePictureBase64,
               portfolio: profile?.portfolioWebsite || null,
+              coverLetter: app.coverLetter || null,
+              notes: app.notes || "",
               appliedAt: app.appliedAt,
               status: app.status || "PENDING",
             },
@@ -155,6 +159,16 @@ const JobApplicants = () => {
         });
 
         setApplications(transformedApplications);
+
+        // Initialize notes and status state for each application
+        const notesMap = {};
+        const statusMap = {};
+        transformedApplications.forEach((app) => {
+          notesMap[app.applicationId] = app.applicant.notes || "";
+          statusMap[app.applicationId] = app.applicant.status || "PENDING";
+        });
+        setApplicationNotes(notesMap);
+        setApplicationStatuses(statusMap);
       } catch (error) {
         console.error("[JobApplicants] Error loading job applications:", error);
         showNotification("Failed to load applications", "error");
@@ -171,26 +185,44 @@ const JobApplicants = () => {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  const handleStatusChange = async (applicationId, newStatus) => {
+  const handleStatusAndNotesUpdate = async (applicationId) => {
     try {
+      const notes = applicationNotes[applicationId] || "";
+      const newStatus = applicationStatuses[applicationId];
+
       await jobApplicationService.updateApplicationStatus(
         applicationId,
-        newStatus
+        newStatus,
+        notes
       );
 
-      // Update local state
+      // Update local state only after successful backend update
       setApplications((prev) =>
         prev.map((app) =>
           app.applicationId === applicationId
-            ? { ...app, applicant: { ...app.applicant, status: newStatus } }
+            ? {
+                ...app,
+                applicant: {
+                  ...app.applicant,
+                  status: newStatus,
+                  notes: notes,
+                },
+              }
             : app
         )
       );
 
-      showNotification("Application status updated successfully!");
+      showNotification("Application updated successfully!");
     } catch (error) {
-      console.error("Error updating application status:", error);
-      showNotification("Failed to update application status", "error");
+      console.error("Error updating application:", error);
+      showNotification("Failed to update application", "error");
+      // Revert status to original value on error
+      setApplicationStatuses((prev) => ({
+        ...prev,
+        [applicationId]:
+          applications.find((app) => app.applicationId === applicationId)
+            ?.applicant.status || "PENDING",
+      }));
     }
   };
 
@@ -209,15 +241,15 @@ const JobApplicants = () => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "Applied":
+      case "PENDING":
         return "bg-blue-100 text-blue-800 border-blue-200";
-      case "In Review":
+      case "IN_REVIEW":
         return "bg-yellow-100 text-yellow-800 border-yellow-200";
-      case "Interview":
+      case "INTERVIEW":
         return "bg-purple-100 text-purple-800 border-purple-200";
-      case "Rejected":
+      case "REJECTED":
         return "bg-red-100 text-red-800 border-red-200";
-      case "Hired":
+      case "HIRED":
         return "bg-green-100 text-green-800 border-green-200";
       default:
         return "bg-gray-100 text-gray-800 border-gray-200";
@@ -231,16 +263,16 @@ const JobApplicants = () => {
 
   const statusCounts = {
     all: applications.length,
-    applied: applications.filter((app) => app.applicant.status === "Applied")
+    pending: applications.filter((app) => app.applicant.status === "PENDING")
       .length,
-    inreview: applications.filter((app) => app.applicant.status === "In Review")
+    inreview: applications.filter((app) => app.applicant.status === "IN_REVIEW")
       .length,
     interview: applications.filter(
-      (app) => app.applicant.status === "Interview"
+      (app) => app.applicant.status === "INTERVIEW"
     ).length,
-    hired: applications.filter((app) => app.applicant.status === "Hired")
+    hired: applications.filter((app) => app.applicant.status === "HIRED")
       .length,
-    rejected: applications.filter((app) => app.applicant.status === "Rejected")
+    rejected: applications.filter((app) => app.applicant.status === "REJECTED")
       .length,
   };
 
@@ -424,12 +456,12 @@ const JobApplicants = () => {
           <div className="mb-8">
             <div className="flex flex-wrap gap-2">
               {[
-                { key: "all", label: "All Applications" },
-                { key: "applied", label: "Applied" },
-                { key: "inreview", label: "In Review" },
-                { key: "interview", label: "Interview" },
-                { key: "hired", label: "Hired" },
-                { key: "rejected", label: "Rejected" },
+                { key: "all", label: "ALL" },
+                { key: "pending", label: "PENDING" },
+                { key: "inreview", label: "IN_REVIEW" },
+                { key: "interview", label: "INTERVIEW" },
+                { key: "hired", label: "HIRED" },
+                { key: "rejected", label: "REJECTED" },
               ].map(({ key, label }) => (
                 <button
                   key={key}
@@ -540,26 +572,64 @@ const JobApplicants = () => {
                       </div>
 
                       <div className="lg:ml-8 lg:text-right">
-                        <div className="mb-4">
-                          <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                            Update Status
-                          </label>
-                          <select
-                            value={application.applicant.status}
-                            onChange={(e) =>
-                              handleStatusChange(
-                                application.applicationId,
-                                e.target.value
+                        <div className="mb-4 space-y-3">
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                              Status
+                            </label>
+                            <select
+                              value={
+                                applicationStatuses[
+                                  application.applicationId
+                                ] || application.applicant.status
+                              }
+                              onChange={(e) =>
+                                setApplicationStatuses((prev) => ({
+                                  ...prev,
+                                  [application.applicationId]: e.target.value,
+                                }))
+                              }
+                              className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 outline-none"
+                            >
+                              <option value="PENDING">PENDING</option>
+                              <option value="IN_REVIEW">IN_REVIEW</option>
+                              <option value="INTERVIEW">INTERVIEW</option>
+                              <option value="HIRED">HIRED</option>
+                              <option value="REJECTED">REJECTED</option>
+                            </select>
+                          </div>
+
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                              Notes
+                            </label>
+                            <textarea
+                              value={
+                                applicationNotes[application.applicationId] ||
+                                ""
+                              }
+                              onChange={(e) =>
+                                setApplicationNotes((prev) => ({
+                                  ...prev,
+                                  [application.applicationId]: e.target.value,
+                                }))
+                              }
+                              placeholder="Add notes about this applicant..."
+                              rows="3"
+                              className="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 outline-none resize-none"
+                            />
+                          </div>
+
+                          <button
+                            onClick={() =>
+                              handleStatusAndNotesUpdate(
+                                application.applicationId
                               )
                             }
-                            className="px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 outline-none"
+                            className="w-full px-4 py-2 bg-green-600 dark:bg-green-700 text-white rounded-xl hover:bg-green-700 dark:hover:bg-green-600 transition-colors font-semibold"
                           >
-                            <option value="Applied">Applied</option>
-                            <option value="In Review">In Review</option>
-                            <option value="Interview">Interview</option>
-                            <option value="Hired">Hired</option>
-                            <option value="Rejected">Rejected</option>
-                          </select>
+                            Update
+                          </button>
                         </div>
 
                         <div className="flex flex-col gap-2">
@@ -742,6 +812,20 @@ const JobApplicants = () => {
                     {selectedApplicant.bio}
                   </p>
                 </div>
+
+                {/* Cover Letter */}
+                {selectedApplicant.coverLetter && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                      Cover Letter
+                    </h4>
+                    <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                      <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+                        {selectedApplicant.coverLetter}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {/* Experience */}
                 <div>
@@ -1000,6 +1084,20 @@ const JobApplicants = () => {
                         />
                       </svg>
                     </a>
+                  </div>
+                )}
+
+                {/* Employer Notes */}
+                {selectedApplicant.notes && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                      Your Notes
+                    </h4>
+                    <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-xl p-4">
+                      <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+                        {selectedApplicant.notes}
+                      </p>
+                    </div>
                   </div>
                 )}
 
