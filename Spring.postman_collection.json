@@ -1,0 +1,2533 @@
+{
+  "info": {
+    "_postman_id": "bf60be7e-f4f2-40d3-90a9-fd90a8fb5715",
+    "name": "Spring",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "1599575"
+  },
+  "item": [
+    {
+      "name": "Dummy",
+      "item": [
+        {
+          "name": "PathVariable",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-VERSION",
+                "value": "3.0",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;v=3.0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "/api/dummy/users/123/posts/456",
+              "path": [
+                "api",
+                "dummy",
+                "users",
+                "123",
+                "posts",
+                "456"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "HomeRequest",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "/home",
+              "path": [
+                "home"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "QueryParams",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "/api/dummy/users/search?name=John&gender=Male",
+              "path": [
+                "api",
+                "dummy",
+                "users",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "John"
+                },
+                {
+                  "key": "gender",
+                  "value": "Male"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "QueryParamsWithMap",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "/api/dummy/users/search?name=John&gender=Male",
+              "path": [
+                "api",
+                "dummy",
+                "users",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "John"
+                },
+                {
+                  "key": "gender",
+                  "value": "Male"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ReqHeaders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "User-Location",
+                "value": "Delhi",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "/api/dummy/users/headers",
+              "path": [
+                "api",
+                "dummy",
+                "users",
+                "headers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RequestBody",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "User-Location",
+                "value": "Delhi",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Madan Reddy\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"gender\": \"Male\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/api/dummy/users",
+              "path": [
+                "api",
+                "dummy",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RequestEntity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "User-Location",
+                "value": "Delhi",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Madan Reddy\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"gender\": \"Male\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/api/dummy/users/request-entity",
+              "path": [
+                "api",
+                "dummy",
+                "users",
+                "request-entity"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Versioning",
+      "item": [
+        {
+          "name": "Legacy",
+          "item": [
+            {
+              "name": "PathVersioning",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "/api/legacy/versions/v2",
+                  "path": [
+                    "api",
+                    "legacy",
+                    "versions",
+                    "v2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ReqParamVersioning",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "/api/legacy/versions?version=2",
+                  "path": [
+                    "api",
+                    "legacy",
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ReqHeadersVersioning",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-API-VERSION",
+                    "value": "2",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/legacy/versions",
+                  "path": [
+                    "api",
+                    "legacy",
+                    "versions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "MediaTypeVersioning",
+              "protocolProfileBehavior": {
+                "disabledSystemHeaders": {}
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp.v1+json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/legacy/versions",
+                  "path": [
+                    "api",
+                    "legacy",
+                    "versions"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Spring7",
+          "item": [
+            {
+              "name": "PathVersioning",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "/api/versions/1.0",
+                  "path": [
+                    "api",
+                    "versions",
+                    "1.0"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ReqParamVersioning",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "/api/versions?version=2.0",
+                  "path": [
+                    "api",
+                    "versions"
+                  ],
+                  "query": [
+                    {
+                      "key": "version",
+                      "value": "2.0"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ReqHeadersVersioning",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-API-VERSION",
+                    "value": "1.0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/versions",
+                  "path": [
+                    "api",
+                    "versions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "MediaTypeVersioning",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/versions",
+                  "path": [
+                    "api",
+                    "versions"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "item": [
+        {
+          "name": "GetAllCompanies",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.eazyapp+json;v=1.0",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "/api/companies",
+              "path": [
+                "api",
+                "companies"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Contacts",
+      "item": [
+        {
+          "name": "SendContactMsg",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.eazyapp+json;v=1.0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Madan\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"userType\": \"Job Seeker\",\n    \"subject\": \"Facing technical problem\",\n    \"message\": \"Facing technical problem while uploading Resume\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/api/contacts",
+              "path": [
+                "api",
+                "contacts"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WebScopes",
+      "item": [
+        {
+          "name": "RequestScope",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.eazyapp+json;v=1.0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Madan\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"userType\": \"Job Seeker\",\n    \"subject\": \"Facing technical problem\",\n    \"message\": \"Facing technical problem while uploading Resume\"\n}"
+            },
+            "url": {
+              "raw": "/api/scope/request",
+              "path": [
+                "api",
+                "scope",
+                "request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SessionScope",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.eazyapp+json;v=1.0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Madan\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"userType\": \"Job Seeker\",\n    \"subject\": \"Facing technical problem\",\n    \"message\": \"Facing technical problem while uploading Resume\"\n}"
+            },
+            "url": {
+              "raw": "/api/scope/session",
+              "path": [
+                "api",
+                "scope",
+                "session"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ApplicationScope",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.eazyapp+json;v=1.0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Madan\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"userType\": \"Job Seeker\",\n    \"subject\": \"Facing technical problem\",\n    \"message\": \"Facing technical problem while uploading Resume\"\n}"
+            },
+            "url": {
+              "raw": "/api/scope/application",
+              "path": [
+                "api",
+                "scope",
+                "application"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TestScope",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.eazyapp+json;v=1.0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Madan\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"userType\": \"Job Seeker\",\n    \"subject\": \"Facing technical problem\",\n    \"message\": \"Facing technical problem while uploading Resume\"\n}"
+            },
+            "url": {
+              "raw": "/api/scope/test",
+              "path": [
+                "api",
+                "scope",
+                "test"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Security",
+      "item": [
+        {
+          "name": "Company",
+          "item": [
+            {
+              "name": "GetAllCompanies",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "Madan@123",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "madan",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/companies",
+                  "path": [
+                    "api",
+                    "companies"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetAllCompanies_Public",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IlRlc3QgVXNlciIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1NjIzIiwicm9sZXMiOiJST0xFX0pPQl9TRUVLRVIiLCJpYXQiOjE3NjU4ODMyODIsImV4cCI6MTc2NTk2OTY4Mn0.80veK24FLWqi0o-Kz3x3NKXPrzEnigF4ves2JesOYlE",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/companies/public",
+                  "path": [
+                    "api",
+                    "companies",
+                    "public"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Contacts",
+          "item": [
+            {
+              "name": "SendContactMsg",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "Madan@123",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "madan",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Madan\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"userType\": \"Job Seeker\",\n    \"subject\": \"Facing technical problem\",\n    \"message\": \"Facing technical problem while uploading Resume\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/contacts",
+                  "path": [
+                    "api",
+                    "contacts"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "SendContactMsg_Public",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "c2fd4c7e-a34a-45c1-8f86-b5177d305c59",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"1\",\n    \"email\": \"tutor@eazybytes.com\",\n    \"userType\": \"Job Seeker\",\n    \"subject\": \"Facing technical problem\",\n    \"message\": \"Facing technical problem while uploading Resume\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/contacts/public",
+                  "path": [
+                    "api",
+                    "contacts",
+                    "public"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Admin",
+          "item": [
+            {
+              "name": "GetNewContactMsgs",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2NDg3MjMxLCJleHAiOjE3NjY1NzM2MzF9.lVlEHH0YOZ5CoUhyh1mGEgY5g_p-dA5vv1Bf3zlEOWw",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "faa5a23f-c7af-4c72-97b7-51ef29208ed1",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/contacts/admin",
+                  "path": [
+                    "api",
+                    "contacts",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetNewContactMsgsWithSort",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2NDk1MjUyLCJleHAiOjE3NjY1ODE2NTJ9.nkkubPbNEuTNLwUjMJ2Swq0oIsg85WAvYknD0826c5k",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "faa5a23f-c7af-4c72-97b7-51ef29208ed1",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/contacts/sort/admin?sortBy=id&sortDir=desc",
+                  "path": [
+                    "api",
+                    "contacts",
+                    "sort",
+                    "admin"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "id"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetNewContactMsgsWithPage",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2NDk1MjUyLCJleHAiOjE3NjY1ODE2NTJ9.nkkubPbNEuTNLwUjMJ2Swq0oIsg85WAvYknD0826c5k",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "faa5a23f-c7af-4c72-97b7-51ef29208ed1",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/contacts/page/admin?pageNumber=1&pageSize=10&sortBy=id&sortDir=desc",
+                  "path": [
+                    "api",
+                    "contacts",
+                    "page",
+                    "admin"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "1"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "10"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "id"
+                    },
+                    {
+                      "key": "sortDir",
+                      "value": "desc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateContactMsgStatus",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2NDk1MjUyLCJleHAiOjE3NjY1ODE2NTJ9.nkkubPbNEuTNLwUjMJ2Swq0oIsg85WAvYknD0826c5k",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "faa5a23f-c7af-4c72-97b7-51ef29208ed1",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/contacts/3/status/admin",
+                  "path": [
+                    "api",
+                    "contacts",
+                    "3",
+                    "status",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateCompany",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY3MDg5MzE0LCJleHAiOjE3NjcxNzU3MTR9.5E3v6L0Tc1NmcvckBRAgCkmYfY_4JtTeRL8-JQrcCrY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "f482f2e0-64c3-48a8-ac0b-7d482686e10b",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Eazy Bytes\",\n    \"logo\": \"/logos/apple.png\",\n    \"industry\": \"Technology\",\n    \"size\": \"Medium\",\n    \"rating\": \"5.0\",\n    \"locations\": \"Hyderabad\",\n    \"founded\": \"2013\",\n    \"description\": \"Ed-Tech Company\",\n    \"employees\": \"2343\",\n    \"website\": \"https://example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/companies/admin",
+                  "path": [
+                    "api",
+                    "companies",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetAllCompaniesForAdmin",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY3MzQ2NjM1LCJleHAiOjE3Njc0MzMwMzV9.AY0AsuP35GFd7ZtvihBR3JBRMDcnldWOHnGP1ACThTU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "bd3e4896-87c6-4c6a-8f37-020bac927052",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/companies/admin",
+                  "path": [
+                    "api",
+                    "companies",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateCompanyDetails",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2OTk5NjQ0LCJleHAiOjE3NjcwODYwNDR9.Q1VLFVFNtzrJJM2wx6dvJDDnISr4hLDdnKXXDfCe7cU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "f482f2e0-64c3-48a8-ac0b-7d482686e10b",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Eazy Bytes\",\n    \"logo\": \"/logos/apple.png\",\n    \"industry\": \"Technology\",\n    \"size\": \"Small\",\n    \"rating\": \"5.0\",\n    \"locations\": \"Hyderabad\",\n    \"founded\": \"2014\",\n    \"description\": \"Ed-Tech Company\",\n    \"employees\": \"5\",\n    \"website\": \"https://eazybytes.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/companies/35/admin",
+                  "path": [
+                    "api",
+                    "companies",
+                    "35",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteCompanyById",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY3MDg5MzE0LCJleHAiOjE3NjcxNzU3MTR9.5E3v6L0Tc1NmcvckBRAgCkmYfY_4JtTeRL8-JQrcCrY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "f482f2e0-64c3-48a8-ac0b-7d482686e10b",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/companies/36/admin",
+                  "path": [
+                    "api",
+                    "companies",
+                    "36",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "SearchUserByEmail",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2OTk5NjQ0LCJleHAiOjE3NjcwODYwNDR9.Q1VLFVFNtzrJJM2wx6dvJDDnISr4hLDdnKXXDfCe7cU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "7ed54bf9-6d36-4770-8be0-77ffe9bf3ca3",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/search/admin?email=testing@gmail.com",
+                  "path": [
+                    "api",
+                    "users",
+                    "search",
+                    "admin"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "testing@gmail.com"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ElevateToEmployer",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2OTk5NjQ0LCJleHAiOjE3NjcwODYwNDR9.Q1VLFVFNtzrJJM2wx6dvJDDnISr4hLDdnKXXDfCe7cU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "7ed54bf9-6d36-4770-8be0-77ffe9bf3ca3",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/12/role/employer/admin",
+                  "path": [
+                    "api",
+                    "users",
+                    "12",
+                    "role",
+                    "employer",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "AssignCompanyToEmployer",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1Njc0Iiwicm9sZXMiOiJST0xFX0FETUlOIiwiaWF0IjoxNzY2OTk5NjQ0LCJleHAiOjE3NjcwODYwNDR9.Q1VLFVFNtzrJJM2wx6dvJDDnISr4hLDdnKXXDfCe7cU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "7ed54bf9-6d36-4770-8be0-77ffe9bf3ca3",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NjM5NjM3NSwiZXhwIjoxNzY2NDgyNzc1fQ.tSOwGUY0AP1FhyN7JsLqhgszAZeDtqXrBZlPpFTdfGU",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/12/company/7/admin",
+                  "path": [
+                    "api",
+                    "users",
+                    "12",
+                    "company",
+                    "7",
+                    "admin"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Employer",
+          "item": [
+            {
+              "name": "GetJobs",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IlNhbmphbmEiLCJlbWFpbCI6InNhbmphbmFAZ21haWwuY29tIiwibW9iaWxlTnVtYmVyIjoiMjMzNDQ1NTY3NSIsInJvbGVzIjoiUk9MRV9FTVBMT1lFUiIsImlhdCI6MTc2NzM2MDE3OSwiZXhwIjoxNzY3NDQ2NTc5fQ.TzeTK7CFEYanQfXEcVAdMbCCxpsRV7GKiWyXVLoopfc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/jobs/employer",
+                  "path": [
+                    "api",
+                    "jobs",
+                    "employer"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateJob",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IlNhbmphbmEiLCJlbWFpbCI6InNhbmphbmFAZ21haWwuY29tIiwibW9iaWxlTnVtYmVyIjoiMjMzNDQ1NTY3NSIsInJvbGVzIjoiUk9MRV9FTVBMT1lFUiIsImlhdCI6MTc2NzM2MDE3OSwiZXhwIjoxNzY3NDQ2NTc5fQ.TzeTK7CFEYanQfXEcVAdMbCCxpsRV7GKiWyXVLoopfc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "bd3e4896-87c6-4c6a-8f37-020bac927052",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n        \"title\": \"Application Director\",\n        \"location\": \"Remote\",\n        \"workType\": \"Remote\",\n        \"jobType\": \"Freelance\",\n        \"category\": \"Design\",\n        \"experienceLevel\": \"Entry Level\",\n        \"salaryMin\": 42000.00,\n        \"salaryMax\": 99000.00,\n        \"salaryCurrency\": \"USD\",\n        \"salaryPeriod\": \"year\",\n        \"description\": \"Join our design team as a Creative Director! You'll work on user-centered design solutions, conduct user research, and create beautiful interfaces that delight our customers.\",\n        \"requirements\": \"[\\\"Figma\\\", \\\"Illustrator\\\", \\\"After Effects\\\", \\\"Prototyping\\\", \\\"Design Systems\\\", \\\"User Research\\\", \\\"Wireframing\\\", \\\"Adobe XD\\\"]\",\n        \"benefits\": \"[\\\"Mental Health Support\\\", \\\"Life Insurance\\\", \\\"Remote Work\\\", \\\"Stock Options\\\", \\\"401(k)\\\"]\",\n        \"featured\": false,\n        \"urgent\": false,\n        \"remote\": true\n    }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/jobs/employer",
+                  "path": [
+                    "api",
+                    "jobs",
+                    "employer"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateJobStatus",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IlNhbmphbmEiLCJlbWFpbCI6InNhbmphbmFAZ21haWwuY29tIiwibW9iaWxlTnVtYmVyIjoiMjMzNDQ1NTY3NSIsInJvbGVzIjoiUk9MRV9FTVBMT1lFUiIsImlhdCI6MTc2NzM2MDE3OSwiZXhwIjoxNzY3NDQ2NTc5fQ.TzeTK7CFEYanQfXEcVAdMbCCxpsRV7GKiWyXVLoopfc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "bd3e4896-87c6-4c6a-8f37-020bac927052",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n        \"status\": \"ACTIVE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/jobs/1004/status/employer",
+                  "path": [
+                    "api",
+                    "jobs",
+                    "1004",
+                    "status",
+                    "employer"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetApplications",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFYXp5IEpvYiBQb3J0YWwiLCJzdWIiOiJKb2IgUG9ydGFsIEpXVCBUb2tlbiIsIm5hbWUiOiJTYW5qYW5hIiwiZW1haWwiOiJzYW5qYW5hQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzUiLCJyb2xlcyI6IlJPTEVfRU1QTE9ZRVIiLCJpYXQiOjE3Njc4ODQ0NTIsImV4cCI6MTc2Nzk3MDg1Mn0.Uo4sGCjDICHPuzlUgOAstjvMfZLC3MJIZLAB_eur3vA",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/jobs/applications/143/employer",
+                  "path": [
+                    "api",
+                    "jobs",
+                    "applications",
+                    "143",
+                    "employer"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateApplication",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFYXp5IEpvYiBQb3J0YWwiLCJzdWIiOiJKb2IgUG9ydGFsIEpXVCBUb2tlbiIsIm5hbWUiOiJTYW5qYW5hIiwiZW1haWwiOiJzYW5qYW5hQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjIzMzQ0NTU2NzUiLCJyb2xlcyI6IlJPTEVfRU1QTE9ZRVIiLCJpYXQiOjE3Njc4ODQ0NTIsImV4cCI6MTc2Nzk3MDg1Mn0.Uo4sGCjDICHPuzlUgOAstjvMfZLC3MJIZLAB_eur3vA",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "e653d8c3-4976-474a-bfec-1381c8e09576",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n        \"applicationId\": \"9\",\n        \"status\": \"REJECTED\",\n        \"notes\": \"Not suitable\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/jobs/applications/employer",
+                  "path": [
+                    "api",
+                    "jobs",
+                    "applications",
+                    "employer"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "JobSeeker",
+          "item": [
+            {
+              "name": "SaveProfile",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzM3MTIwNiwiZXhwIjoxNzY3NDU3NjA2fQ.Ihxdqwo3KGEZB7fj_xNCuHEVVMOQ1Ryi_vUMhvXWvX4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "bd3e4896-87c6-4c6a-8f37-020bac927052",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "profile",
+                      "value": "{\"jobTitle\":\"Consultant\",\"location\":\"Hyderabad\",\"experienceLevel\":\"Entry Level\",\"professionalBio\":\"Experienced Java developer\",\"portfolioWebsite\":null}",
+                      "type": "text",
+                      "uuid": "419b0041-8e8e-45c9-a816-8826743fe12f"
+                    },
+                    {
+                      "key": "profilePicture",
+                      "type": "file",
+                      "uuid": "f7920308-6ebd-49ac-bfcd-448d5a3d6793",
+                      "src": "/Users/eazybytes/Desktop/Profile/Madan Reddy.jpeg"
+                    },
+                    {
+                      "key": "resume",
+                      "type": "file",
+                      "uuid": "90e8c2f0-4e26-4e82-9ecf-ca3ff70a4694",
+                      "src": "/Users/eazybytes/Desktop/Profile/MadanReddy_Resume.pdf"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "/api/users/profile/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "profile",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetProfile",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzM3MTIwNiwiZXhwIjoxNzY3NDU3NjA2fQ.Ihxdqwo3KGEZB7fj_xNCuHEVVMOQ1Ryi_vUMhvXWvX4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "bd3e4896-87c6-4c6a-8f37-020bac927052",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/profile/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "profile",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetProfilePicture",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzM3MTIwNiwiZXhwIjoxNzY3NDU3NjA2fQ.Ihxdqwo3KGEZB7fj_xNCuHEVVMOQ1Ryi_vUMhvXWvX4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "bd3e4896-87c6-4c6a-8f37-020bac927052",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/profile/picture/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "profile",
+                    "picture",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetResume",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzM3MTIwNiwiZXhwIjoxNzY3NDU3NjA2fQ.Ihxdqwo3KGEZB7fj_xNCuHEVVMOQ1Ryi_vUMhvXWvX4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwidXNlcm5hbWUiOiJtYWRhbiIsInJvbGVzIjoiUk9MRV9VU0VSLEZBQ1RPUl9QQVNTV09SRCIsImlhdCI6MTc2NTM2NTU0MSwiZXhwIjoxNzY1NDUxOTQxfQ.cn2UxZY1ZDqmxPHpyoaFgR3EbY3klkIDDpiK97DPqpE",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "bd3e4896-87c6-4c6a-8f37-020bac927052",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/profile/resume/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "profile",
+                    "resume",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "SaveJob",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFYXp5IEpvYiBQb3J0YWwiLCJzdWIiOiJKb2IgUG9ydGFsIEpXVCBUb2tlbiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1NjkwIiwicm9sZXMiOiJST0xFX0pPQl9TRUVLRVIiLCJpYXQiOjE3NjkxODI4NzEsImV4cCI6MTc2OTE4NjQ3MX0.PoPZ0IxBUaM2vD1Qqz8wH7tKdSHgAyTqS567br3vCmI",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "896ffda3-7caa-4746-84fd-15a403f1b9fa",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/saved-jobs/912/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "saved-jobs",
+                    "912",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UnSaveJob",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzUxOTc2OCwiZXhwIjoxNzY3NjA2MTY4fQ.8ZPnX38j_sJvXsWIoAwGPY3XSVfyeFM4Xx7GiD8QcYc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "62c9905f-8015-4c3e-a9c8-a2906eed02d8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/saved-jobs/912/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "saved-jobs",
+                    "912",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetSavedJobs",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJFYXp5IEpvYiBQb3J0YWwiLCJzdWIiOiJKb2IgUG9ydGFsIEpXVCBUb2tlbiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkBnbWFpbC5jb20iLCJtb2JpbGVOdW1iZXIiOiIyMzM0NDU1NjkwIiwicm9sZXMiOiJST0xFX0pPQl9TRUVLRVIiLCJpYXQiOjE3NjkxODI4NzEsImV4cCI6MTc2OTE4NjQ3MX0.PoPZ0IxBUaM2vD1Qqz8wH7tKdSHgAyTqS567br3vCmI",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "62c9905f-8015-4c3e-a9c8-a2906eed02d8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/saved-jobs/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "saved-jobs",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "ApplyJob",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzUxOTc2OCwiZXhwIjoxNzY3NjA2MTY4fQ.8ZPnX38j_sJvXsWIoAwGPY3XSVfyeFM4Xx7GiD8QcYc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "62c9905f-8015-4c3e-a9c8-a2906eed02d8",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"jobId\": \"918\",\n    \"coverLetter\": \"I specialize in building backend systems using Spring Boot and microservices, with growing expertise in AI-driven applications. I am excited to apply these skills to solve real-world problems at your company\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/users/job-applications/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "job-applications",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetAppliedJobs",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzUxOTc2OCwiZXhwIjoxNzY3NjA2MTY4fQ.8ZPnX38j_sJvXsWIoAwGPY3XSVfyeFM4Xx7GiD8QcYc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "62c9905f-8015-4c3e-a9c8-a2906eed02d8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/job-applications/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "job-applications",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "WithDrawJob",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJKb2IgUG9ydGFsIiwic3ViIjoiSldUIFRva2VuIiwibmFtZSI6IldpbGwgU21pdGgiLCJlbWFpbCI6InNtaXRoQGdtYWlsLmNvbSIsIm1vYmlsZU51bWJlciI6IjEyMjM0MzU0NTYiLCJyb2xlcyI6IlJPTEVfSk9CX1NFRUtFUiIsImlhdCI6MTc2NzUxOTc2OCwiZXhwIjoxNzY3NjA2MTY4fQ.8ZPnX38j_sJvXsWIoAwGPY3XSVfyeFM4Xx7GiD8QcYc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "62c9905f-8015-4c3e-a9c8-a2906eed02d8",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/users/job-applications/918/jobseeker",
+                  "path": [
+                    "api",
+                    "users",
+                    "job-applications",
+                    "918",
+                    "jobseeker"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "896ffda3-7caa-4746-84fd-15a403f1b9fa",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"john@gmail.com\",\n    \"password\": \"EazyBytes@1803\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/api/auth/login/public",
+              "path": [
+                "api",
+                "auth",
+                "login",
+                "public"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-XSRF-TOKEN",
+                "value": "896ffda3-7caa-4746-84fd-15a403f1b9fa",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@gmail.com\",\n    \"mobileNumber\": \"2334455690\",\n    \"password\": \"EazyBytes@1803\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/api/auth/register/public",
+              "path": [
+                "api",
+                "auth",
+                "register",
+                "public"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CSRFToken",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "/api/csrf-token/public",
+              "path": [
+                "api",
+                "csrf-token",
+                "public"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TestLogging",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "/api/logging/public",
+              "path": [
+                "api",
+                "logging",
+                "public"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Actuator",
+      "item": [
+        {
+          "name": "Actuator_ALL",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "/jobportal/actuator",
+              "path": [
+                "jobportal",
+                "actuator"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ShutDown",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "/jobportal/actuator/shutdown",
+              "path": [
+                "jobportal",
+                "actuator",
+                "shutdown"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cache_ALL",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "/jobportal/actuator/caches",
+              "path": [
+                "jobportal",
+                "actuator",
+                "caches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE_Cache_ALL",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "/jobportal/actuator/caches",
+              "path": [
+                "jobportal",
+                "actuator",
+                "caches"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE_Cache",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "/jobportal/actuator/caches/jobs",
+              "path": [
+                "jobportal",
+                "actuator",
+                "caches",
+                "jobs"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Set_LogLevel",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"configuredLevel\": \"ERROR\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/jobportal/actuator/loggers/com.eazybytes.jobportal.aspects.LoggingAndPerformanceAspect",
+              "path": [
+                "jobportal",
+                "actuator",
+                "loggers",
+                "com.eazybytes.jobportal.aspects.LoggingAndPerformanceAspect"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Clear_LogLevel",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/jobportal/actuator/loggers/com.eazybytes.jobportal.aspects.LoggingAndPerformanceAspect",
+              "path": [
+                "jobportal",
+                "actuator",
+                "loggers",
+                "com.eazybytes.jobportal.aspects.LoggingAndPerformanceAspect"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              "pm.request.url.port=\"9090\""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Client",
+      "item": [
+        {
+          "name": "Posts",
+          "item": [
+            {
+              "name": "GetAllPosts",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/posts",
+                  "path": [
+                    "api",
+                    "posts"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetPost",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/posts/1",
+                  "path": [
+                    "api",
+                    "posts",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreatePost",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "7e0acfbd-46af-4fdb-895a-9ac224d6e5d4",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n     \"userId\": \"2\",\n     \"title\": \"Testing\",\n     \"body\": \"Testing Body\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/posts",
+                  "path": [
+                    "api",
+                    "posts"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdatePost",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "7e0acfbd-46af-4fdb-895a-9ac224d6e5d4",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"userId\": 2,\n    \"id\": 1,\n    \"title\": \"Testing\",\n    \"body\": \"Testing Body\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/posts/1",
+                  "path": [
+                    "api",
+                    "posts",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeletePost",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "7e0acfbd-46af-4fdb-895a-9ac224d6e5d4",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/posts/1",
+                  "path": [
+                    "api",
+                    "posts",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "ToDos",
+          "item": [
+            {
+              "name": "GetAllToDos",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/todos",
+                  "path": [
+                    "api",
+                    "todos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "GetToDO",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/todos/1",
+                  "path": [
+                    "api",
+                    "todos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "CreateToDO",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "7e0acfbd-46af-4fdb-895a-9ac224d6e5d4",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"userId\": 1,\n    \"title\": \"delectus aut autem\",\n    \"completed\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/todos",
+                  "path": [
+                    "api",
+                    "todos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "UpdateToDo",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "c2fd4c7e-a34a-45c1-8f86-b5177d305c59",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"userId\": 1,\n    \"id\": 1,\n    \"title\": \"Testing\",\n    \"completed\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "/api/todos/1",
+                  "path": [
+                    "api",
+                    "todos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "DeleteToDo",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.eazyapp+json;v=1.0",
+                    "type": "text"
+                  },
+                  {
+                    "key": "X-XSRF-TOKEN",
+                    "value": "c2fd4c7e-a34a-45c1-8f86-b5177d305c59",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "/api/todos/1",
+                  "path": [
+                    "api",
+                    "todos",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "pm.request.url.protocol=\"http\";",
+          "pm.request.url.host=\"localhost\";",
+          "pm.request.url.port=\"8080\";"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}
