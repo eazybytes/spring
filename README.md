@@ -9,8 +9,6 @@ You will learn how to design and build real-world web applications and REST APIs
 
 # 📚 Course Curriculum Overview
 
----
-
 ### 🚀 Section 1 — Spring Core & Maven: The Fast-Track Foundation
 
 Start with the backbone of Spring development:
@@ -22,7 +20,7 @@ Start with the backbone of Spring development:
 
 👉 Understand how Spring really works internally.
 
----
+
 
 ### 🧩 Section 2 — Spring Beans Deep Dive
 
@@ -36,7 +34,7 @@ Move beyond basics into advanced bean management:
 
 👉 Learn to solve real problems like **NoUniqueBeanDefinitionException**.
 
----
+
 
 ### 🌐 Section 3 — Mastering Spring Boot REST API Development
 
@@ -50,7 +48,7 @@ Build professional REST APIs:
 
 👉 Build APIs like production systems.
 
----
+
 
 ### ⚙️ Section 4 — Spring Boot Essentials
 
@@ -61,7 +59,7 @@ Improve project structure and developer experience:
 - H2 Database setup & data loading
 - Better logging & development workflow
 
----
+
 
 ### 🗄️ Section 5 — Spring Data JPA
 
@@ -75,7 +73,7 @@ Learn database interaction the modern way:
 
 👉 Stop writing boilerplate SQL.
 
----
+
 
 ### 🐳 Section 6 — Databases with Docker
 
@@ -86,7 +84,7 @@ Move from local DB to containerized environments:
 - Docker Compose with Spring Boot
 - Persistent volumes & configuration
 
----
+
 
 ### 🛠️ Section 7 — Building Real Backend Features
 
@@ -96,7 +94,7 @@ Hands-on feature development:
 - Hibernate schema generation
 - End-to-end API testing with UI
 
----
+
 
 ### 🧠 Section 8 — Essential Backend Skills
 
@@ -108,7 +106,7 @@ Learn production-ready practices:
 - OpenAPI / Swagger documentation
 - Web scopes (Request, Session, Application)
 
----
+
 
 ### 🔗 Section 9 — Mastering JPA Relationships
 
@@ -119,7 +117,7 @@ Deep dive into entity mappings:
 - Deletion strategies
 - Real-world relationship modelling
 
----
+
 
 ### 🔐 Section 10 — Spring Security Essentials
 
@@ -130,7 +128,7 @@ Understand how Spring Security behaves internally:
 - CORS setup
 - Internal authentication flow explained
 
----
+
 
 ### 🔑 Section 11 — Authentication: From Passwords to JWT
 
@@ -141,7 +139,7 @@ Modern backend authentication:
 - JWT token generation & validation
 - Custom filters for authentication flow
 
----
+
 
 ### 🛡️ Section 12 — Database Authentication & CSRF Protection
 
@@ -152,7 +150,7 @@ Build secure real-world login systems:
 - Derived queries for validation
 - CSRF attack theory & implementation
 
----
+
 
 ### 📊 Section 13 — Logging in Spring Boot
 
@@ -162,7 +160,7 @@ Design production-grade logging:
 - Structured logging strategies
 - Debugging and monitoring techniques
 
----
+
 
 ### 🔄 Section 14 — Aspect-Oriented Programming (AOP)
 
@@ -172,7 +170,7 @@ Handle cross-cutting concerns:
 - `@Around`, `@Before`, `@AfterReturning`, `@AfterThrowing`
 - Performance logging and centralized exception handling
 
----
+
 
 ### 🚀 Section 15 — Advanced Queries in Spring Data JPA
 
@@ -183,7 +181,7 @@ Improve database performance:
 - Solving N+1 problems
 - Batch fetching strategies
 
----
+
 
 ### 🔒 Section 16 — Authorization, Sorting & Pagination
 
@@ -193,7 +191,7 @@ Enhance API security & data handling:
 - Securing APIs
 - Sorting & Pagination implementation
 
----
+
 
 ### 💼 Section 17 — Mastering Transactions
 
@@ -204,7 +202,7 @@ Understand real transaction behavior:
 - Rollback rules
 - Production pitfalls
 
----
+
 
 ### ⚡ Section 18 — Spring Cache & Performance Optimization
 
@@ -214,7 +212,7 @@ Make APIs faster:
 - TTL-based caching
 - Caffeine integration
 
----
+
 
 ### 👤 Section 19 — Real Feature Development
 
@@ -225,7 +223,7 @@ Build advanced backend workflows:
 - Job bookmarking & application APIs
 - ManyToMany best practices
 
----
+
 
 ### 🌍 Section 20 — Configuration & Profiles
 
@@ -236,7 +234,7 @@ Master environment-based backend setups:
 - Profiles for DEV/QA/PROD
 - Conditional bean creation
 
----
+
 
 ### 📡 Section 21 — Production-Ready Observability
 
@@ -246,7 +244,7 @@ Monitor backend systems like industry experts:
 - Metrics, logs & tracing
 - OpenTelemetry & Micrometer
 
----
+
 
 ### 🔗 Section 22 — Consuming REST APIs
 
@@ -256,7 +254,7 @@ Learn how backend services communicate:
 - HTTP Service Client
 - Service grouping strategies
 
----
+
 
 ### ☁️ Section 23 — Deploying to AWS
 
@@ -272,7 +270,8 @@ Take your backend to the cloud:
 
 - Good understanding of Core Java
 - Basic understanding of HTML, CSS, and Web Apps (not mandatory)
-- Interest in learning the Spring Framework
+- Willingness to Learn and Break Things
+- A laptop
 
 ---
 
