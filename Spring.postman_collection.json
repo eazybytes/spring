@@ -87,7 +87,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "/api/dummy/users/search?name=John&gender=Male",
+              "raw": "/api/dummy/users/search/map?name=John&gender=Male",
               "path": [
                 "api",
                 "dummy",
